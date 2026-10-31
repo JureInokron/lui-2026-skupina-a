@@ -56,7 +56,9 @@ flowchart LR
 
 ## 4. Simulacija (1:00)
 
-**Odpri simulacijo:** https://claude.ai/artifact/WuYUaRhEWF8TTdGYreND1W (datoteka v repozitoriju: [`simulacija.html`](simulacija.html), deluje tudi lokalno v brskalniku).
+**3D simulacija:** https://claude.ai/artifact/CUQeWXdQErQhvxfu14Feba (datoteka [`simulacija_3d.html`](simulacija_3d.html)); gumbi zgoraj desno: 3D, od strani, od zgoraj in **Obrat** (približa padec s traka 1 na trak 2).
+
+**2D simulacija:** https://claude.ai/artifact/WuYUaRhEWF8TTdGYreND1W (datoteka [`simulacija.html`](simulacija.html)). Obe delujeta tudi lokalno v brskalniku.
 
 Kaj pokazati v eni minuti:
 - **stranski pogled:** vibracijska miza razprši kup, trak 1 rezine razmakne, kamera 1 označi slabe (rdeč obroč), izpih 1 jih vrže v izmet, ostale padejo na trak 2 in se obrnejo, izpih 2, dobre v škatlo na tehtnici;

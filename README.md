@@ -9,6 +9,6 @@ Delavnica LEOSS / LUI, 30. in 31. 10. 2026. Naloga skupine A: **avtomatsko zapir
 - `3d model.png` — 3D koncept (Luka)
 - `kalkulacija_bom.md` — kosovnica, delo, variante cene; končna izbira je v poglavju 10
 - `plan_zapiranje_cajnih_skatlic.md` — delovni plan skupine in zahteve naročnika (prvi osnutek, koncept se je od takrat spremenil)
-- `naloga_B_jabolcni_cips/` — **druga naloga: kontrola jabolčnega čipsa**; predstavitev: [`naloga_B_jabolcni_cips/PREDSTAVITEV.md`](naloga_B_jabolcni_cips/PREDSTAVITEV.md), simulacija: https://claude.ai/artifact/WuYUaRhEWF8TTdGYreND1W
+- `naloga_B_jabolcni_cips/` — **druga naloga: kontrola jabolčnega čipsa**; predstavitev: [`naloga_B_jabolcni_cips/PREDSTAVITEV.md`](naloga_B_jabolcni_cips/PREDSTAVITEV.md), simulacija 3D: https://claude.ai/artifact/CUQeWXdQErQhvxfu14Feba, 2D: https://claude.ai/artifact/WuYUaRhEWF8TTdGYreND1W
 - `zapiski/` — zapiski debat skupine
 - `LUI_2026_Dve_povprasevanji_za_skupini.pdf` — povpraševanje
