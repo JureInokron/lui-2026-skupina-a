@@ -14,9 +14,9 @@ Predstavitev: 8 minut + 4 minute vprašanj. Podrobnosti so v [`kalkulacija_bom.m
 | Dovod | okoli 5 m/min, pobrati moramo vse, kar pride |
 | Prostor | naš trak največ 4 m, nadomesti obstoječi modri trak |
 | Pregled | **obe strani** rezine, napake so črne pike (plesen) |
-| Pogoj | rezine se ne smejo prekrivati |
+| Pogoj | rezine se ne smejo prekrivati, trak ne sme imeti špranje |
 | Izhod | dobre v škatlo na tehtnici, slabe v ločen zabojnik |
-| Kameri | **ima že stranka**, fokus 500 mm |
+| Vision | **ima že stranka**: kameri (fokus 500 mm), osvetlitev, obdelava slike in programiranje |
 | Higiena | stik z živili, nežno, čim manj lomljenja |
 
 ## 2. Blokovna shema (1:00)
@@ -24,88 +24,90 @@ Predstavitev: 8 minut + 4 minute vprašanj. Podrobnosti so v [`kalkulacija_bom.m
 ```mermaid
 flowchart LR
     A[Sušilec<br/>izhod na 1 m] --> V[Vibracijska miza<br/>razprši po širini]
-    V --> B[Poševni trak 4 m<br/>prekrite rezine<br/>zdrsnejo nazaj]
-    B --> C[Kamera zgoraj<br/>pri 3,5 m<br/>stran A]
-    C -->|0,5 m za izračun| D[Glava traku<br/>kamera spodaj v letu<br/>stran B]
-    D --> E{Napaka?}
-    E -->|NE| F[Žleb → škatla<br/>na tehtnici]
-    E -->|DA: zračni izpih| G[Zabojnik za izmet]
+    V --> T1[Trak 1, poševen<br/>kamera 1: stran A]
+    T1 -->|0,5 m| I1{Slaba?}
+    I1 -->|DA: izpih 1| X1[Izmet 1]
+    I1 -->|NE| O[Padec na trak 2<br/>rezina se obrne]
+    O --> T2[Trak 2<br/>kamera 2: stran B]
+    T2 -->|0,5 m| I2{Slaba?}
+    I2 -->|DA: izpih 2| X2[Izmet 2]
+    I2 -->|NE| S[Škatla na tehtnici]
 ```
 
 ## 3. Naša rešitev (2:00)
 
-1. **Vibracijska miza** pod sušilcem prevzame kup rezin in jih razprši po celi širini.
-2. **Poševni trak 4 m × 500 mm**, en kos brez špranje, ~15° navzgor od 1 m do ~2 m. Teče 15 do 20 m/min, torej 3 do 4-krat hitreje od dovoda: rezine se razmaknejo, prekrite pa na klancu zdrsnejo nazaj.
-3. **Kamera zgoraj** nad trakom pri 3,5 m vidi zgornjo stran. Do glave traku je **0,5 m**, kar je pri 20 m/min **1,5 s za izračun**.
-4. **Kamera spodaj** pod glavo traku vidi spodnjo stran, ko rezina zleti čez rob. Tu je časa malo, zato samo hiter test temnih pik.
-5. **Zračni izpih** takoj za glavo: letev 32 hitrih ventilov čez širino, vsak pokriva ~15 mm. Slaba rezina dobi kratek sunek in pade v izmet. Rezine se nič ne dotakne, ni lomljenja.
-6. Dobre rezine letijo po žlebu v **škatlo na tehtnici**, ki javi, ko je polna.
+**Obe kameri gledata od zgoraj. Rezino obrnemo, ne kamere.**
 
-### Skica
-
-![Skica sistema](skica_cips.svg)
+1. **Vibracijska miza** pod sušilcem prevzame kup rezin in jih razprši po širini.
+2. **Trak 1**, poševen ~15°, 2,2 m: teče 3 do 4-krat hitreje od dovoda, rezine se razmaknejo, prekrite zdrsnejo nazaj.
+3. **Kamera 1** pregleda **stran A**. Do glave traku je **0,5 m**, to je 1,5 s za odločitev.
+4. **Izmet 1** na glavi traku 1: slabe rezine dobijo sunek zraka v zabojnik.
+5. Dobre rezine **padejo ~150 mm na trak 2** čez nastavljiv prag in se **obrnejo**.
+6. **Kamera 2** pregleda **stran B**, spet 0,5 m pred **izmetom 2**.
+7. Dobre rezine gredo po žlebu v **škatlo na tehtnici**, ki javi, ko je polna.
 
 ### 3D koncept (Luka)
 
-![3D koncept](Trak-za-cips.png)
+![3D koncept z obračanjem](trak-cips-2.png)
+
+### Skica
+
+![Skica sistema](skica_cips_obracanje.svg)
 
 ## 4. Simulacija (Luka) (1:00)
 
 > **Sem pride Lukov simulator** (povezava, posnetek ali sličica). Kaj naj pokaže:
-> - rezine prihajajo iz sušilca s 5 m/min in se na poševnem traku razmaknejo;
-> - koliko se jih prekriva pred kamero (cilj: skoraj nič);
-> - kamera označi slabe, izpih jih vrže v izmet, dobre gredo v škatlo;
-> - števec: rezin na minuto, izločenih, polnjenje škatle.
->
-> Ob simulaciji povejte izračun spodaj.
+> - vibracijska miza razprši rezine, na traku 1 se razmaknejo;
+> - **koliko rezin se pri padcu na trak 2 obrne** (cilj ≥ 90 %), pri kateri višini padca;
+> - izmet 1 in izmet 2 izločita slabe, dobre gredo v škatlo;
+> - števec: rezin na minuto, izločenih na vsaki postaji, polnjenje škatle.
 
 | Izračun | |
 |---|---|
 | Hitrost dovoda | ~5 m/min |
-| Hitrost našega traku | 15 do 20 m/min (3 do 4-krat hitreje → razmak med rezinami) |
-| Čas od kamere zgoraj do izpiha | 0,5 m / 20 m/min = **1,5 s** |
-| Širina enega ventila | ~15 mm (32 ventilov na 500 mm) |
-| Odziv ventila | 1 do 3 ms |
+| Hitrost trakov | 15 do 20 m/min (3 do 4-krat hitreje → razmak med rezinami) |
+| Čas od kamere do izpiha | 0,5 m / 20 m/min = **1,5 s** (na obeh postajah) |
+| Padec za obrat | ~150 mm, nastavljiv |
+| Ventili | 32 na letev, vsak ~15 mm širine, odziv 1 do 3 ms |
 
 ## 5. Izbira tehnologij (1:00)
 
 | Sklop | Izbira | Zakaj |
 |---|---|---|
-| Razporejanje | vibracijska miza + poševni trak, hitrejši od dovoda | miza razprši po širini, na klancu prekrite rezine zdrsnejo nazaj |
-| Pregled | 2 kameri stranke + naši LED luči + PC za obdelavo slike | obe strani, enakomerna svetloba |
-| Izmet | zračni izpih, letev 32 ventilov | rezine tehtajo 1 do 3 g, ničesar se ne dotakne |
-| Zrak | lasten rezervoar, filter brez olja, tlačno stikalo | živilski zrak, zanesljivo (lekcija s škatlicami) |
-| Krmiljenje | PLC Siemens S7-1200 + zaslon | trak, tehtnica, alarmi, recepti |
-| Polnjenje | škatla na tehtnici | polni se po masi, ne po kosih |
+| Razporejanje | vibracijska miza + poševni trak, hitrejši od dovoda | miza razprši po širini, prekrite rezine zdrsnejo nazaj |
+| Pregled obeh strani | obračanje rezine pri padcu s traka 1 na trak 2 | obe kameri zgoraj, obe imata dovolj časa, ni špranje |
+| Vision | sistem stranke (kameri, luči, obdelava) | ga že ima in pozna; mi ga vgradimo in povežemo z izpihoma |
+| Izmet | zračni izpih, 2 letvi po 32 ventilov | rezine tehtajo 1 do 3 g, ničesar se ne dotakne |
+| Zrak | rezervoar 20 L, filter brez olja, tlačno stikalo | živilski zrak, zanesljivo (lekcija s škatlicami) |
+| Krmiljenje | PLC Siemens S7-1200 + zaslon, enkoder na vsakem traku | točen položaj rezine do izpiha |
+| Polnjenje | škatla na tehtnici | polni se po masi |
 
 **Alternative, ki smo jih pretehtali:**
-- **dva traka z obračanjem rezine** (pade s traka 1 na trak 2 in se obrne, obe kameri zgoraj): več časa za obe strani, a ne obrne se vsaka rezina; okoli 4.400 € dražje (3D slika spodaj);
-![Alternativa z obračanjem (Luka)](trak-cips-2.png)
-
+- **en trak s kamero spodaj v letu** (brez obračanja): okoli 8.500 € ceneje, a spodaj je za odločitev zelo malo časa in drobtine padajo na kamero;
 - **mehanska loputa** za izmet: cenejša, a pri gostem toku vrže ven tudi dobre;
 - **delta robot z vakuumom**: nežen, a drag in ne dohaja gostega toka.
 
 ## 6. Higiena, varnost, tveganja (0:45)
 
-- **HACCP: neposreden stik z živilom.** Kontaktne površine inox AISI 304 in živilski PU, brez mrtvih kotov, trak se sname brez orodja za pranje, zrak brez olja, maziva H1, nad hrano ni stekla.
-- **Varnost pri delu:** zaščite pogonov, ohišje vizije z varnostnimi stikali (ob odprtju se ustavita trak in izpih), gobi, podest za čiščenje glave traku na 2 m.
-- **Tveganja:** lepljive rezine ne zdrsnejo (nastavljiv naklon in hitrost, preizkus s pravim čipsom), lažni izmet dobrih rezin (učenje na vzorcih, nastavljiv prag), drobtine na spodnji kameri (zračna zavesa), izpad zraka (rezervoar, alarm).
+- **HACCP: neposreden stik z živilom.** Kontaktne površine inox AISI 304 in živilski PU, brez mrtvih kotov, trakova se snameta brez orodja za pranje, zrak brez olja, maziva H1, nad hrano ni stekla.
+- **Varnost pri delu:** zaščite pogonov in vibracijske mize, ohišje vizije z varnostnimi stikali (ob odprtju se ustavita trakova in izpiha), gobi.
+- **Tveganja:** ne obrne se vsaka rezina (nastavljiv prag in višina padca, preizkus s pravim čipsom, simulacija), lomljenje pri padcu (samo ~150 mm), lepljive rezine (vibracijska miza, nastavljiva hitrost), izpad zraka (rezervoar, ob alarmu stop).
 
 ## 7. Cena in povračilo (1:00)
 
 | Sklop | Znesek |
 |---|---|
-| Planiranje (konstrukcija, ocena tveganja, CE) | 2.750 € |
-| Mehanika (vibracijska miza, trak, nosilci, žlebova, ohišje; izdelava v Srbiji) | 8.600 € |
-| Elektro (motor, izpih, zrak, tehtnica, senzorji, PLC program) | 6.070 € |
-| Vizija (luči, PC, vgradnja kamer stranke, učenje napak) | 6.000 € |
-| Elektro omara | 2.800 € |
-| Preizkus pri nas, montaža in zagon | 2.200 € |
+| Planiranje (konstrukcija, ocena tveganja, CE) | 3.300 € |
+| Mehanika (vibracijska miza, 2 traka, prag, žlebovi, ohišje; izdelava v Srbiji) | 9.800 € |
+| Elektro (2 pogona, 2 letvi izpiha, zrak, tehtnica, senzorji, PLC program) | 9.700 € |
+| Priklop vision sistema stranke na izpiha | 880 € |
+| Elektro omara | 3.150 € |
+| Preizkus pri nas, montaža in zagon | 2.640 € |
 | Logistika | 1.100 € |
-| **Lastna cena** | **29.520 €** |
-| Rezerva 10 % | 2.950 € |
-| Dodatek 30 % | 9.740 € |
-| **Prodajna cena** | **≈ 42.200 € brez DDV** (kameri dobavi stranka) |
+| **Lastna cena** | **30.570 €** |
+| Rezerva 10 % | 3.060 € |
+| Dodatek 30 % | 10.090 € |
+| **Prodajna cena** | **≈ 43.700 € brez DDV** (vision dobavi stranka) |
 
 **Za stranko:** stroj nadomesti ročni pregled. En človek na izmeno stane okoli 55.000 €/leto.
 
@@ -115,23 +117,23 @@ flowchart LR
 
 ## 8. Faze, merila in kaj rabimo od vas (0:30)
 
-**Faze:** test s pravim čipsom (slike napak, naklon, izpih) 2 tedna → konstrukcija 3 tedne → izdelava in učenje vizije 5 tednov → preizkus pri nas → montaža pod sušilec in zagon → spremljanje prvi mesec.
+**Faze:** test s pravim čipsom (obračanje, naklon, izpih) 2 tedna → konstrukcija 3 tedne → izdelava 5 tednov → preizkus pri nas z vašim vision sistemom → montaža pod sušilec in zagon → spremljanje prvi mesec.
 
-**Merila uspešnosti:** zaznanih ≥ 95 % rezin s črno piko · lažni izmet ≤ 2 % · nič prekrivanja pred kamero pri polnem dovodu · škatla napolnjena na ± 20 g.
+**Merila uspešnosti:** obrnjenih ≥ 90 % rezin · izločenih ≥ 95 % rezin, ki jih vision označi kot slabe · nič prekrivanja pred kamerama pri polnem dovodu · škatla napolnjena na ± 20 g.
 
 **Kaj rabimo od naročnika:**
-1. vzorce dobrih in slabih rezin (za učenje kamere);
+1. vzorce dobrih in slabih rezin (za preizkus obračanja in izpiha);
 2. koliko kg/h pride iz sušilca;
 3. velikost, debelina in lepljivost rezin;
-4. katere napake štejejo in koliko lažnega izmeta je sprejemljivo;
-5. podatke o kamerah, ki jih že imate (tip, priklop).
+4. podatke o vision sistemu: kakšen signal da za slabo rezino (položaj, čas), priklop;
+5. kam z izločenimi rezinami.
 
 ---
 
 ## Pričakovana vprašanja
 
-- **Zakaj ne vidite spodnje strani na traku?** Trak ne sme imeti špranje, zato spodnjo stran vidimo v letu čez rob, kjer je rezina prosta.
-- **Kaj, če se rezine prekrivajo?** Trak je 3 do 4-krat hitrejši od dovoda in poševen: prekrite zdrsnejo nazaj in se razmaknejo.
+- **Zakaj obračate rezine?** Trak ne sme imeti špranje. Tako obe kameri gledata od zgoraj, obe imata pol metra časa in nobena ni pod trakom, kjer padajo drobtine.
+- **Kaj, če se rezina ne obrne?** Prag in višino padca nastavimo na vašem čipsu; cilj je ≥ 90 %. Simulacija pokaže, pri kateri višini se obrne največ rezin.
+- **Zakaj dva izmeta?** Po obračanju se položaj rezine spremeni, zato je varneje izločiti slabe takoj za vsako kamero.
 - **Zakaj zrak in ne mehanika?** Rezine so lahke in krhke; zrak jih ne poškoduje in je dovolj hiter za gost tok.
-- **Kaj, če zmanjka zraka?** Lasten rezervoar in tlačno stikalo; ob padcu tlaka se trak ustavi, da ne gredo slabe rezine v škatlo.
-- **Koliko lažnega izmeta?** Prag je nastavljiv na zaslonu; pri preizkusu s pravim čipsom ga uskladimo z vami.
+- **Kaj, če zmanjka zraka?** Rezervoar 20 L in tlačno stikalo; ob padcu tlaka se trakova ustavita, da slabe ne gredo v škatlo.

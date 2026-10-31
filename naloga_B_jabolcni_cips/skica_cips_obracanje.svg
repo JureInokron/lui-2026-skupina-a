@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" font-family="Helvetica, Arial, sans-serif" font-size="11">
   <rect width="1000" height="720" fill="#ffffff"/>
   <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#345"/></marker></defs>
-  <text x="40" y="28" font-size="16" font-weight="bold" fill="#123">Kontrola jabolčnega čipsa · varianta z obračanjem · 2 traka, 4 m</text>
-  <text x="40" y="46" fill="#555">Rezina pade s traka 1 na trak 2 in se pri tem obrne. Obe kameri gledata samo od zgoraj, vsaka eno stran rezine.</text>
+  <text x="40" y="28" font-size="16" font-weight="bold" fill="#123">Kontrola jabolčnega čipsa · glavni koncept: obračanje in dvojni izmet</text>
+  <text x="40" y="46" fill="#555">Vibracijska miza razprši rezine. Na prehodu s traka 1 na trak 2 se rezina obrne. Obe kameri (vision stranke) gledata od zgoraj.</text>
 
   <line x1="20" y1="600" x2="980" y2="600" stroke="#999" stroke-width="2"/>
   <text x="24" y="616" font-size="9" fill="#777">tla</text>
@@ -10,8 +10,16 @@
   <text x="24" y="396" font-size="9" fill="#777">1,0 m</text><text x="24" y="296" font-size="9" fill="#777">1,5 m</text>
 
   <!-- sušilec -->
-  <rect x="20" y="300" width="90" height="90" fill="#eee" stroke="#999" stroke-dasharray="4 3"/>
-  <text x="30" y="340" fill="#777">SUŠILEC</text><text x="30" y="354" fill="#777" font-size="9">izhod na 1 m</text>
+  <rect x="20" y="230" width="90" height="70" fill="#eee" stroke="#999" stroke-dasharray="4 3"/>
+  <text x="30" y="262" fill="#777">SUŠILEC</text><text x="30" y="276" fill="#777" font-size="9">izhod na 1 m</text>
+  <path d="M70 300 L70 372" stroke="#b5651d" stroke-width="2" marker-end="url(#a)"/>
+  <!-- vibracijska miza -->
+  <path d="M30 380 L110 396 L110 406 L30 390 Z" fill="#cfd8e3" stroke="#345"/>
+  <g stroke="#345" stroke-width="1.5" fill="none"><path d="M44 392 l4 6 l4 -6 l4 6 l4 -6"/><path d="M84 400 l4 6 l4 -6 l4 6 l4 -6"/></g>
+  <rect x="40" y="410" width="60" height="16" fill="#888"/><text x="44" y="422" font-size="8" fill="#fff">vibrator</text>
+  <text x="20" y="372" font-size="9" fill="#345">vibracijska miza</text>
+  <g fill="#c8a24a"><ellipse cx="50" cy="383" rx="8" ry="2.5"/><ellipse cx="66" cy="387" rx="8" ry="2.5"/><ellipse cx="88" cy="391" rx="8" ry="2.5"/></g>
+  <line x1="70" y1="426" x2="70" y2="600" stroke="#345" stroke-width="3"/>
 
   <!-- trak 1: 0–2,2 m, poševno 1,0 → ~1,55 m -->
   <line x1="100" y1="404" x2="520" y2="292" stroke="#345" stroke-width="12" stroke-linecap="round" opacity="0.25"/>
@@ -27,7 +35,7 @@
 
   <!-- kamera 1 nad trakom 1 pri ~1,7 m -->
   <rect x="404" y="210" width="40" height="22" fill="#333"/><path d="M412 232 L424 318 L436 232" fill="#9cf" opacity="0.35"/>
-  <text x="352" y="204" font-size="9">KAMERA 1: stran A</text>
+  <text x="352" y="204" font-size="9">KAMERA 1 (stranka): stran A</text>
   <path d="M424 300 L516 276" stroke="#c00" marker-end="url(#a)"/><path d="M516 276 L424 300" stroke="#c00" marker-end="url(#a)"/>
   <text x="440" y="270" font-size="9" fill="#c00">0,5 m</text>
 
@@ -58,7 +66,7 @@
 
   <!-- kamera 2 -->
   <rect x="780" y="214" width="40" height="22" fill="#333"/><path d="M788 236 L800 336 L812 236" fill="#9cf" opacity="0.35"/>
-  <text x="730" y="208" font-size="9">KAMERA 2: stran B</text>
+  <text x="712" y="208" font-size="9">KAMERA 2 (stranka): stran B</text>
   <path d="M760 236 L760 334" stroke="#345" marker-end="url(#a)"/><path d="M760 334 L760 236" stroke="#345" marker-end="url(#a)"/><text x="736" y="290" font-size="9" fill="#345">500</text>
   <path d="M800 324 L896 324" stroke="#c00" marker-end="url(#a)"/><path d="M896 324 L800 324" stroke="#c00" marker-end="url(#a)"/>
   <text x="826" y="318" font-size="9" fill="#c00">0,5 m</text>
@@ -84,11 +92,11 @@
   <text x="344" y="184" font-size="9" fill="#076">zaprto ohišje vizije</text>
 
   <g font-size="10" fill="#123">
-    <text x="40" y="636" font-weight="bold">1 trak 1, 0–2,2 m</text><text x="40" y="650">prekrite zdrsnejo nazaj</text>
+    <text x="40" y="636" font-weight="bold">1 vibracijska miza + trak 1</text><text x="40" y="650">razprši, prekrite zdrsnejo nazaj</text>
     <text x="210" y="636" font-weight="bold">2 kamera 1 zgoraj</text><text x="210" y="650">stran A, 0,5 m do izpiha 1</text>
     <text x="400" y="636" font-weight="bold">3 izpih 1 + obrat</text><text x="400" y="650">slabe ven, dobre padejo na trak 2 in se obrnejo</text>
     <text x="680" y="636" font-weight="bold">4 kamera 2 zgoraj</text><text x="680" y="650">stran B, 0,5 m do izpiha 2</text>
     <text x="680" y="672" font-weight="bold">5 izpih 2 → dobre v škatlo</text><text x="680" y="686">na tehtnici</text>
   </g>
-  <text x="40" y="700" font-size="10" fill="#555">Obe kameri gledata od zgoraj, obe imata pol metra časa za izračun, ni kamere pod trakom in ni reže.</text>
+  <text x="40" y="700" font-size="10" fill="#555">Obe kameri gledata od zgoraj, obe imata pol metra časa za izračun, ni kamere pod trakom in ni špranje. Vision (kameri, luči, obdelava) dobavi stranka.</text>
 </svg>

@@ -18,7 +18,7 @@ Osnova: povpraševanje (PDF, stran 2) in ustna navodila naročnika 31. 10. ob 11
 | Kameri | **fokus 500 mm od traku**; **kameri že ima stranka**, nista v naši ceni |
 | Iz PDF | nežno ravnanje, stik z živili, higiensko čiščenje, čim manj lomljenja, sledljivost, enostavne nastavitve in obravnava napak |
 
-> **Posodobljeno:** končni koncept je poševni trak 4 m od 1 m višine, en trak brez špranje, kamera zgoraj pri 3,5 m, kamera spodaj v letu na glavi, izpih takoj za glavo. Glej `kalkulacija_bom.md` in `skica_cips.svg`. Spodnji predlog je prvi osnutek.
+> **Posodobljeno:** glavni koncept je **vibracijska miza + dva traka z obračanjem rezine in dvojnim izmetom**; vision (kameri, luči, obdelava, programiranje) dobavi stranka. Glej `PREDSTAVITEV.md`, `kalkulacija_bom.md` in `skica_cips_obracanje.svg`. Spodnji predlog je prvi osnutek.
 
 ## Predlog poteka (4 m)
 
@@ -69,7 +69,7 @@ flowchart LR
 
 ## Naslednji koraki
 - [ ] iz videa oceniti, koliko rezin na minuto pride
-- [x] skica (tloris + stranski pogled): `skica_cips.svg`
-- [x] kosovnica in kalkulacija: `kalkulacija_bom.md` (~42.200 € z vibracijsko mizo, kameri dobavi stranka)
+- [x] skica: `skica_cips_obracanje.svg` (glavni), `skica_cips.svg` (alternativa)
+- [x] kosovnica in kalkulacija: `kalkulacija_bom.md` (~43.700 €, vision dobavi stranka)
 - [x] povračilo za stranko (v kalkulaciji; potrditi, koliko ljudi danes pregleduje)
 - [x] varnost, HACCP (tu je **neposreden stik z živilom**, zato inox, živilski trakovi, čiščenje), tveganja

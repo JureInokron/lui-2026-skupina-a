@@ -1,22 +1,25 @@
 # Kontrola jabolčnega čipsa: kosovnica (BOM) in cena
 
-Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md). Cene so nabavne ocene brez DDV. **Kameri dobavi stranka (že ju ima), zato nista v ceni**; mi ju vgradimo, priklopimo in nastavimo.
+**Glavni koncept: dva traka z obračanjem rezine in dvojnim izmetom.**
+Skica: [`skica_cips_obracanje.svg`](skica_cips_obracanje.svg) · 3D (Luka): [`trak-cips-2.png`](trak-cips-2.png) · Navodila: [`NAVODILA.md`](NAVODILA.md).
 
-**Umeritev po prvi nalogi:** pri zapiranju škatlic je bila prava cena izvedenega projekta okoli **26.000 €**, mi smo bili na 46.300 €, torej skoraj 2-krat previsoko. Zato tukaj računamo vitkeje: malo planiranja, standardne komponente, izdelava pri kooperantu. Predavatelj je rekel, da je budget za čips **večji** kot za škatlice.
+Cene so nabavne ocene brez DDV. **Vision sistem ima stranka že v celoti: kameri, osvetlitev, obdelava slike in njeno programiranje.** Zato ni v ceni; mi ga vgradimo v ohišje in njegov signal »slaba rezina« povežemo z našima izpihoma.
+
+**Umeritev po prvi nalogi:** pri zapiranju škatlic je bila prava cena izvedenega projekta okoli **26.000 €**, mi smo bili skoraj 2-krat višje. Zato računamo vitko: malo planiranja, standardne komponente, izdelava pri kooperantu. Budget za čips je po besedah predavatelja **večji** kot za škatlice.
+
+![3D koncept (Luka)](trak-cips-2.png)
 
 ## Koncept
 
-![3D koncept (Luka)](Trak-za-cips.png)
+1. **Vibracijska miza** pod sušilcem (izhod na 1 m) prevzame kup rezin in jih razprši po širini.
+2. **Trak 1**, poševen ~15°, 2,2 m × 500 mm, 15 do 20 m/min: rezine se razmaknejo, prekrite na klancu zdrsnejo nazaj.
+3. **Kamera 1** (zgoraj, fokus 500 mm) pri 1,7 m vidi **stran A**. Do glave traku je **0,5 m za izračun** (1,5 s pri 20 m/min).
+4. **Izmet 1** na glavi traku 1: slabe rezine izpihne v zabojnik izmet 1.
+5. **Obračanje:** dobre rezine padejo ~150 mm na trak 2 čez nastavljiv prag in se obrnejo.
+6. **Trak 2**, vodoraven, 1,8 m × 500 mm. **Kamera 2** (zgoraj) pri 3,5 m vidi **stran B**, spet 0,5 m pred izpihom.
+7. **Izmet 2** na glavi traku 2, dobre rezine po žlebu v **škatlo na tehtnici**.
 
-*3D koncept (Luka): poševni trak 4 × 0,5 m, zgornja kamera, spodnja kamera v letu, zračni izmet, škatla na tehtnici.*
-
-- Prevzem **pod sušilcem na višini 1 m** z **vibracijsko mizo**, ki rezine razprši po širini, preden pridejo na trak.
-- **Poševni trak 4 m, ~15° navzgor** (na koncu ~2 m visoko), teče hitreje od dovoda (15 do 20 m/min). Prekrite rezine na klancu zdrsnejo nazaj, zato se razmaknejo in ne ležijo ena na drugi.
-- **En trak brez špranje.** Zgornjo stran slika **kamera nad trakom pri 3,5 m** (fokus 500 mm); do glave traku je **0,5 m za izračun** (pri 20 m/min 1,5 s).
-- Spodnjo stran slika **kamera pod glavo traku**, ki gleda rezino **v letu**, ko zleti čez rob (fokus 500 mm). Ker je izpih blizu, za spodnjo stran uporabimo **hiter, preprost test temnih pik** (nekaj milisekund), zahtevnejšo analizo pa naredimo zgoraj, kjer je časa dovolj.
-- **Izpih ~150 mm za glavo traku**, v letu: slabe dobijo sunek zraka v žleb za izmet, dobre letijo naprej v žleb, ki jih strese v **škatlo na tehtnici**.
-
----
+**Zakaj tako:** obe kameri gledata od zgoraj in obe imata pol metra časa za izračun. Ni špranje v traku, ni kamere pod trakom, drobtine ne padajo na objektiv.
 
 ## Kosovnica
 
@@ -24,77 +27,78 @@ Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md
 | # | Pozicija | Kol. | Cena |
 |---|---|---|---|
 | M0 | Vibracijska miza inox 800 × 500 mm z elektromagnetnim vibratorjem in krmilnikom | 1 | 2.200 € |
-| M1 | Poševni trak 4 m × 500 mm v enem kosu, živilski PU z rahlo strukturo, inox okvir, valji | 1 | 2.600 € |
-| M3 | Nosilna konstrukcija in noge do višine 2 m, inox | 1 | 600 € |
-| M4 | Žleb za dobre rezine do škatle, inox | 1 | 300 € |
-| M5 | Žleb in zabojnik za izmet, inox | 1 | 250 € |
-| M6 | Ohišje vizije in izpiha (inox + polikarbonat, zatemnjeno) | 1 | 900 € |
-| M7 | Nosilci kamer, luči in letve šob | 1 | 250 € |
-| | **Skupaj mehanika** | | **7.100 €** |
+| M1 | Trak 1: poševen 2,2 m × 500 mm, živilski PU z rahlo strukturo, inox okvir, valji | 1 | 1.500 € |
+| M2 | Trak 2: vodoraven 1,8 m × 500 mm, živilski PU, inox okvir, valji | 1 | 1.300 € |
+| M3 | Nastavljiv prag za obračanje rezin, inox | 1 | 150 € |
+| M4 | Nosilna konstrukcija in noge, inox | 1 | 600 € |
+| M5 | Žleb za dobre rezine do škatle | 1 | 300 € |
+| M6 | Žleb in zabojnik za izmet | 2 | 500 € |
+| M7 | Ohišje vizije čez oba traka (inox + polikarbonat, zatemnjeno) | 1 | 1.200 € |
+| M8 | Nosilci kamer, luči in letev šob | 1 | 300 € |
+| | **Skupaj mehanika** | | **8.050 €** |
 
 **Elektro in pnevmatika**
 | # | Pozicija | Kol. | Cena |
 |---|---|---|---|
-| E1 | Mali motor z reduktorjem | 1 | 250 € |
-| E2 | Frekvenčnik | 1 | 150 € |
-| E3 | Enkoder na traku | 1 | 100 € |
-| E4 | Letev hitrih ventilov za izpih, 32 kanalov, z izhodnim modulom | 1 | 2.700 € |
-| E5 | Zrak: rezervoar 10 L, filter za zrak brez olja, regulator, tlačno stikalo | 1 | 500 € |
+| E1 | Mali motor z reduktorjem (trak 1, trak 2) | 2 | 500 € |
+| E2 | Frekvenčnik | 2 | 300 € |
+| E3 | Enkoder (na vsakem traku, za položaj rezine do izpiha) | 2 | 200 € |
+| E4 | Letev hitrih ventilov za izpih, 32 kanalov, z izhodnim modulom | 2 | 5.400 € |
+| E5 | Zrak: rezervoar 20 L, filter za zrak brez olja, regulator, tlačno stikalo | 1 | 600 € |
 | E6 | Tehtnica pod škatlo (plošča, celica, pretvornik) | 1 | 600 € |
 | E7 | Senzorji (škatla na mestu, škatla polna), svetlobni stolpec, gobi, varnostni stikali | 1 | 450 € |
-| | **Skupaj elektro** | | **4.750 €** |
+| | **Skupaj elektro** | | **8.050 €** |
 
 **Vizija**
 | # | Pozicija | Kol. | Cena |
 |---|---|---|---|
-| V1 | Kamera z objektivom (zgoraj nad trakom, spodaj pod glavo traku), fokus 500 mm: **dobavi stranka** | 2 | 0 € |
-| V2 | Linijska LED luč (brez bliskanja) | 2 | 1.000 € |
-| V3 | Industrijski PC za obdelavo slike | 1 | 1.500 € |
-| V4 | Zaščitno okno spodnje kamere, zračna zavesa | 1 | 200 € |
-| | **Skupaj vizija** | | **2.700 €** |
+| V1 | Kameri, osvetlitev, obdelava slike in programiranje: **dobavi stranka** | 1 | 0 € |
 
 **Elektro omara**
 | # | Pozicija | Kol. | Cena |
 |---|---|---|---|
-| O1 | Omara, PLC S7-1200, zaslon 4", varnostni rele, napajanje, sponke, kabli | 1 | 2.200 € |
+| O1 | Omara, PLC S7-1200 z dodatnimi izhodi za 2 letvi, zaslon 4", varnostni rele, napajanje, kabli | 1 | 2.400 € |
 
-**Material skupaj: 16.750 €**
+**Material skupaj: 18.500 €**
 
 ## Delo
 
 | Delo | Ure | Znesek |
 |---|---|---|
-| Planiranje: konstrukcija, ocena tveganja, CE | 50 h × 55 € | 2.750 € |
-| Izdelava in sestava mehanike (kooperant Srbija) | 60 h × 25 € | 1.500 € |
-| Ožičenje (kooperant Srbija) | 24 h × 25 € | 600 € |
-| Programiranje PLC (trakovi, tehtnica, menjava škatle) | 24 h × 55 € | 1.320 € |
-| Vizija: slike pravega čipsa, učenje napak, pragovi, sinhronizacija izpiha | 60 h × 55 € | 3.300 € |
-| Preizkus pri nas s pravim čipsom (FAT) | 16 h × 55 € | 880 € |
+| Planiranje: konstrukcija, ocena tveganja, CE | 60 h × 55 € | 3.300 € |
+| Izdelava in sestava mehanike (kooperant Srbija) | 70 h × 25 € | 1.750 € |
+| Ožičenje (kooperant Srbija) | 30 h × 25 € | 750 € |
+| Programiranje PLC (2 traka, 2 izpiha, tehtnica) | 30 h × 55 € | 1.650 € |
+| Priklop vision sistema stranke: signal slabih rezin → položaj po enkoderju → pravi ventil | 16 h × 55 € | 880 € |
+| Preizkus pri nas s pravim čipsom, nastavitev obračanja (FAT) | 24 h × 55 € | 1.320 € |
 | Montaža pod sušilec in zagon | 24 h × 55 € | 1.320 € |
 | Logistika (prevoz iz Srbije, carinjenje, prevoz do stranke) | | 1.100 € |
-| **Skupaj** | | **12.770 €** |
+| **Skupaj** | | **12.070 €** |
 
 ## Razdelitev in prodajna cena
 
 | Sklop | Skupaj |
 |---|---|
-| Planiranje | 2.750 € |
-| Mehanika (vibracijska miza, trak, material + izdelava) | 8.600 € |
-| Elektro (stroj + programiranje PLC) | 6.070 € |
-| Vizija (luči, PC + vgradnja kamer stranke in učenje) | 6.000 € |
-| Elektro omara (+ ožičenje) | 2.800 € |
-| Preizkus pri nas | 880 € |
+| Planiranje | 3.300 € |
+| Mehanika (vibracijska miza, 2 traka, ohišje + izdelava) | 9.800 € |
+| Elektro (pogoni, 2 izpiha, zrak, tehtnica + programiranje) | 9.700 € |
+| Priklop vision sistema stranke | 880 € |
+| Elektro omara (+ ožičenje) | 3.150 € |
+| Preizkus pri nas | 1.320 € |
 | Montaža in zagon | 1.320 € |
 | Logistika | 1.100 € |
-| **Lastna cena** | **29.520 €** |
-| Rezerva 10 % | 2.950 € |
-| **Lastna cena z rezervo** | **32.470 €** |
-| Dodatek 30 % | 9.740 € |
-| **Prodajna cena** | **≈ 42.200 € brez DDV** |
+| **Lastna cena** | **30.570 €** |
+| Rezerva 10 % | 3.060 € |
+| **Lastna cena z rezervo** | **33.630 €** |
+| Dodatek 30 % | 10.090 € |
+| **Prodajna cena** | **≈ 43.700 € brez DDV** |
 
-Največji del sta **izpih** (letev šob) in **vizija** (15 % cene, brez kamer), kar je pri optičnem sortirniku pričakovano.
+Največji posamezni del sta **dve letvi za izpih** (5.400 €). Planiranje je 8 % cene.
 
-**Če je treba ceneje:** 16 namesto 32 ventilov (−1.200 €, slabša ločljivost izmeta), brez tehtnice, polnjenje škatle po času (−600 €).
+**Če je treba ceneje:**
+- 16 namesto 32 ventilov na letev: −2.400 € (slabša ločljivost izmeta);
+- brez tehtnice, polnjenje po času: −600 €;
+- en trak brez obračanja, s kamero spodaj v letu (alternativa spodaj): okoli −8.500 €.
 
 ## Povračilo za stranko
 
@@ -103,35 +107,32 @@ Predpostavka: ročno pregleduje in sortira **1 do 2 človeka na izmeno** (30 €
 | | 1 človek | 2 človeka |
 |---|---|---|
 | Neto prihranek na leto (1 izmena) | ~38.400 € | ~93.600 € |
-| **Povračilo pri 42.200 €** | **~1,1 leta** | **~0,5 leta** |
-
-Zraven: enaka presoja napak ves dan, sledljivost (vsaka izločena rezina je posneta), manj plesnivih rezin pri kupcu.
+| **Povračilo pri 43.700 €** | **~1,1 leta** | **~0,5 leta** |
 
 ## Varnost, HACCP, tveganja
 
-- **HACCP:** tu je **neposreden stik z živilom**, zato: kontaktne površine inox AISI 304 ali živilski PU, brez rež in mrtvih kotov, trakovi se snamejo brez orodja za pranje, zrak za izpih brez olja (filter), maziva H1, nad hrano ni stekla (zgornja kamera ima polikarbonatno okno).
-- **Varnost pri delu:** glava traku je na 2 m, zato dostop za čiščenje s stopnico ali podestom; zaščite na pogonih, varnostni stikali na ohišju vizije (ob odprtju ugasne izpih in trakovi), gobi.
+- **HACCP:** neposreden stik z živilom: kontaktne površine inox AISI 304 in živilski PU, brez mrtvih kotov, trakova se snameta brez orodja za pranje, zrak brez olja, maziva H1, nad hrano ni stekla.
+- **Varnost pri delu:** zaščite pogonov in vibracijske mize, ohišje vizije z varnostnimi stikali (ob odprtju se ustavita trakova in izpiha), gobi.
 - **Tehnična tveganja:**
-  1. rezine na klancu ne zdrsnejo dovolj (lepljive) → nastavljiv naklon in hitrost, trak z ustrezno strukturo; preizkus s pravim čipsom;
-  2. rezina se v letu obrne, preden jo vidi spodnja kamera → kamera čisto ob glavi traku, kratek čas osvetlitve, položaj iz zgornje slike + enkoderja;
-  3. lažni izmet (dobre izpihne) → učenje na pravih vzorcih, nastavljiv prag na zaslonu;
-  4. drobtine na spodnji kameri → zračna zavesa, čiščenje okna v urniku;
-  5. izpad zraka → rezervoar, tlačno stikalo, ob alarmu se trak ustavi.
+  1. **ne obrne se vsaka rezina** (ukrivljene, lahke) → nastavljiv prag in višina padca, preizkus s pravim čipsom, cilj ≥ 90 % obrnjenih; to pokaže tudi Lukova simulacija;
+  2. dodaten padec poveča lomljenje → padec samo ~150 mm, mehak prehod;
+  3. lepljive rezine ne zdrsnejo na klancu → nastavljiva hitrost in naklon, vibracijska miza pred trakom;
+  4. vision stranke da signal prepozno ali z napačnim položajem → priklop prek enkoderja, preizkus z označenimi rezinami pri FAT;
+  5. izpad zraka (dve letvi rabita več zraka) → rezervoar 20 L, tlačno stikalo, ob alarmu se trakova ustavita.
 
 ---
 
-## Alternativa: dva traka z obračanjem rezine
+## Alternativa: en poševni trak, kamera spodaj v letu
 
-Skica: [`skica_cips_obracanje.svg`](skica_cips_obracanje.svg). Rezina pade s traka 1 (poševen, 2,2 m) na trak 2 (vodoraven, 1,8 m) in se pri padcu obrne. **Obe kameri gledata od zgoraj**, vsaka eno stran, obe imata 0,5 m do svojega izpiha.
+Skica: [`skica_cips.svg`](skica_cips.svg) · 3D (Luka): [`Trak-za-cips.png`](Trak-za-cips.png).
+Vibracijska miza + en trak 4 m. Kamera zgoraj pri 3,5 m, kamera spodaj gleda rezino v letu na glavi traku, en izpih ~150 mm za glavo. Spodaj je za izračun malo časa, zato samo hiter test temnih pik.
 
-| Sprememba glede na en trak | Razlika |
-|---|---|
-| Drugi motor z reduktorjem in frekvenčnik | +400 € |
-| Druga letev šob za izpih (32 kanalov) | +2.700 € |
-| Drugi žleb in zabojnik za izmet | (v okviru mehanike) |
-| **Material skupaj** | **+3.100 €** |
-
-Prodajna cena (z rezervo 10 % in dodatkom 30 %, kameri dobavi stranka): **≈ 46.600 €** namesto 42.200 € (obe z vibracijsko mizo). 3D slika: [`trak-cips-2.png`](trak-cips-2.png).
-
-- **Za:** obe kameri zgoraj, obe imata dovolj časa za izračun, ni kamere pod trakom, ni drobtin na objektivu.
-- **Proti:** ne obrne se vsaka rezina (ukrivljene, lahke); taka rezina gre mimo kamere 2 z isto stranjo. Rešitev: nastavljiv prag in višina padca, preizkus s pravim čipsom; dodaten padec lahko poveča lomljenje.
+| | Glavni (2 traka, obračanje) | Alternativa (1 trak) |
+|---|---|---|
+| Material | 18.500 € | 14.250 € |
+| Lastna cena z rezervo | 33.630 € | 27.060 € |
+| **Prodajna cena** | **≈ 43.700 €** | **≈ 35.200 €** |
+| Obe strani pregledani | da, če se rezina obrne | da, vedno |
+| Čas za izračun | 0,5 m za obe strani | 0,5 m zgoraj, spodaj zelo malo |
+| Kamera pod trakom | ne | da (drobtine na objektivu) |
+| Izpihi | 2 | 1 |
