@@ -1,6 +1,6 @@
 # Kontrola jabolčnega čipsa: kosovnica (BOM) in cena
 
-Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md). Cene so nabavne ocene brez DDV.
+Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md). Cene so nabavne ocene brez DDV. **Kameri dobavi stranka (že ju ima), zato nista v ceni**; mi ju vgradimo, priklopimo in nastavimo.
 
 **Umeritev po prvi nalogi:** pri zapiranju škatlic je bila prava cena izvedenega projekta okoli **26.000 €**, mi smo bili na 46.300 €, torej skoraj 2-krat previsoko. Zato tukaj računamo vitkeje: malo planiranja, standardne komponente, izdelava pri kooperantu. Predavatelj je rekel, da je budget za čips **večji** kot za škatlice.
 
@@ -42,18 +42,18 @@ Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md
 **Vizija**
 | # | Pozicija | Kol. | Cena |
 |---|---|---|---|
-| V1 | Linijska barvna kamera z objektivom (zgoraj nad trakom, spodaj pod glavo traku), fokus 500 mm | 2 | 3.000 € |
+| V1 | Kamera z objektivom (zgoraj nad trakom, spodaj pod glavo traku), fokus 500 mm: **dobavi stranka** | 2 | 0 € |
 | V2 | Linijska LED luč (brez bliskanja) | 2 | 1.000 € |
 | V3 | Industrijski PC za obdelavo slike | 1 | 1.500 € |
 | V4 | Zaščitno okno spodnje kamere, zračna zavesa | 1 | 200 € |
-| | **Skupaj vizija** | | **5.700 €** |
+| | **Skupaj vizija** | | **2.700 €** |
 
 **Elektro omara**
 | # | Pozicija | Kol. | Cena |
 |---|---|---|---|
 | O1 | Omara, PLC S7-1200, zaslon 4", varnostni rele, napajanje, sponke, kabli | 1 | 2.200 € |
 
-**Material skupaj: 17.550 €**
+**Material skupaj: 14.550 €**
 
 ## Delo
 
@@ -76,20 +76,20 @@ Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md
 | Planiranje | 2.750 € |
 | Mehanika (material + izdelava) | 6.400 € |
 | Elektro (stroj + programiranje PLC) | 6.070 € |
-| Vizija (kamere, luči, PC + učenje) | 9.000 € |
+| Vizija (luči, PC + vgradnja kamer stranke in učenje) | 6.000 € |
 | Elektro omara (+ ožičenje) | 2.800 € |
 | Preizkus pri nas | 880 € |
 | Montaža in zagon | 1.320 € |
 | Logistika | 1.100 € |
-| **Lastna cena** | **30.320 €** |
-| Rezerva 10 % | 3.030 € |
-| **Lastna cena z rezervo** | **33.350 €** |
-| Dodatek 30 % | 10.010 € |
-| **Prodajna cena** | **≈ 43.400 € brez DDV** |
+| **Lastna cena** | **27.320 €** |
+| Rezerva 10 % | 2.730 € |
+| **Lastna cena z rezervo** | **30.050 €** |
+| Dodatek 30 % | 9.015 € |
+| **Prodajna cena** | **≈ 39.100 € brez DDV** |
 
-Največji del je **vizija** (20 % cene) in **izpih**, kar je pri optičnem sortirniku pričakovano. En poševni trak brez reže je prihranil vibracijski dodajalnik, odvodni trak in drugi pogon.
+Največji del sta **izpih** (letev šob) in **vizija** (15 % cene, brez kamer), kar je pri optičnem sortirniku pričakovano. En poševni trak brez reže je prihranil vibracijski dodajalnik, odvodni trak in drugi pogon.
 
-**Če je treba ceneje:** 16 namesto 32 ventilov (−1.200 €, slabša ločljivost izmeta), brez tehtnice, polnjenje škatle po času (−600 €), kameri z navadnim (ne linijskim) senzorjem (−1.400 €, manj ostra slika pri gibanju).
+**Če je treba ceneje:** 16 namesto 32 ventilov (−1.200 €, slabša ločljivost izmeta), brez tehtnice, polnjenje škatle po času (−600 €).
 
 ## Povračilo za stranko
 
@@ -98,7 +98,7 @@ Predpostavka: ročno pregleduje in sortira **1 do 2 človeka na izmeno** (30 €
 | | 1 človek | 2 človeka |
 |---|---|---|
 | Neto prihranek na leto (1 izmena) | ~38.400 € | ~93.600 € |
-| **Povračilo pri 43.400 €** | **~1,1 leta** | **~0,5 leta** |
+| **Povračilo pri 39.100 €** | **~1,0 leta** | **~0,4 leta** |
 
 Zraven: enaka presoja napak ves dan, sledljivost (vsaka izločena rezina je posneta), manj plesnivih rezin pri kupcu.
 
@@ -126,7 +126,7 @@ Skica: [`skica_cips_obracanje.svg`](skica_cips_obracanje.svg). Rezina pade s tra
 | Drugi žleb in zabojnik za izmet | (v okviru mehanike) |
 | **Material skupaj** | **+3.100 €** |
 
-Prodajna cena (z rezervo 10 % in dodatkom 30 %): **≈ 47.800 €** namesto 43.400 €.
+Prodajna cena (z rezervo 10 % in dodatkom 30 %, kameri dobavi stranka): **≈ 43.500 €** namesto 39.100 €.
 
 - **Za:** obe kameri zgoraj, obe imata dovolj časa za izračun, ni kamere pod trakom, ni drobtin na objektivu.
 - **Proti:** ne obrne se vsaka rezina (ukrivljene, lahke); taka rezina gre mimo kamere 2 z isto stranjo. Rešitev: nastavljiv prag in višina padca, preizkus s pravim čipsom; dodaten padec lahko poveča lomljenje.
