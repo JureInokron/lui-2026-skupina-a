@@ -222,4 +222,4 @@ Povračilo za stranko pri 51.800 €: **~1,4 leta** pri eni izmeni, **~0,7 leta*
 - **EUR.1** (potrdilo o poreklu) mora kooperant izdati, sicer se plača carina.
 - **Popravki po montaži so dlje**: zato FAT pri nas, preden gre stroj k stranki.
 - **Cenejši hot melt**: preveriti rezervne dele in servis v regiji stranke.
-- Druga možnost: prodajna cena ostane okoli 66.300 €, razlika gre v maržo (okoli 44 % namesto 30 %).
+- Druga možnost: prodajna cena ostane okoli 66.300 €, razlika gre v maržo (dodatek okoli 66 % namesto 30 %, zaslužek okoli 26.400 € namesto 11.960 €).
