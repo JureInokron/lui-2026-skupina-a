@@ -226,29 +226,34 @@ Povračilo za stranko pri 51.800 €: **~1,4 leta** pri eni izmeni, **~0,7 leta*
 
 ---
 
-## 9. Varianta 3: ena leteča lepilna glava (odločitev skupine)
+## 9. Varianta 3 (končna): mirujoča lepilna postaja
 
-**Koncept:** trak teče ves čas, je drsni (akumulacijski) in drsi pod škatlami, ki čakajo, zato **lopatke na traku niso potrebne**. Ob traku je **ena lepilna glava na vozičku s 3 šobami** (G1 linija zgoraj, G2 in G3 pike na strani). Voziček prime škatlo, jo pelje, zalepi, stisne in spusti, ostale škatle ga čakajo pred zadrževalnikom C1. Rabimo samo **eno hot melt enoto**.
+**Koncept:** trak teče ves čas in je drsen. **Lepilna postaja miruje**, nič se ne vozi ob traku. Postaja prime škatlo in jo drži na mestu, trak pod njo drsi naprej, **ostale škatle čakajo za njo** (zadrževalnik C1 jih loči). Ko je škatla zalepljena in stisnjena, jo postaja spusti in trak jo odpelje. **Ni lopatk, ni linearne osi, ni servo pogona, ni gibljivih lepilnih cevi.**
+
+Postaja ima **eno hot melt enoto s 3 šobami**:
+- **G1 zgoraj**: šoba z več luknjicami (ali reža) po celi dolžini pasu za lepilo. Ker je **dolžina škatel pri vseh formatih enaka**, ena fiksna šoba pokrije vse formate brez premika;
+- **G2 in G3 ob strani**: pike na mala krilca.
 
 **Zaporedje v enem ciklu:**
-1. C1 spusti škatlo, voziček jo prime s strani (prijemalo z nastavljivim hodom = širina formata);
-2. G1 nariše linijo po celi dolžini, medtem ko voziček pelje škatlo;
-3. škatla gre mimo fiksne inox zapore, pokrov se zapre, stiskalni cilinder na vozičku ga pritisne;
-4. vodila zapreta stranski krilci, G2 in G3 naneseta pike, prijemalo jih stisne;
-5. stisk ≥ 1 s, voziček spusti škatlo na trak in se prazen vrne.
+1. C1 spusti eno škatlo, S1 jo zazna, prijemalo jo prime s strani in drži ob desnem vodilu;
+2. G1 nanese lepilo na zgornji pas;
+3. zasučni cilinder zapre pokrov in ga stisne;
+4. stranska cilindra zapreta krilca, G2 in G3 naneseta pike, prijemalo stisne;
+5. stisk ≥ 1 s, S3 preveri pokrov, prijemalo spusti, trak odpelje škatlo.
 
 **Čas cikla (zahteva 6 s pri 10 škatlah/min):**
 
 | Korak | Čas |
 |---|---|
-| Prijem | 0,3 s |
-| Nanos in vožnja s škatlo (do 800 mm) | 1,5 s |
-| Zapiranje in stisk | 1,2 s |
-| Spust | 0,3 s |
-| Vrnitev | 0,8 s |
-| **Skupaj** | **4,1 s** → do **14 škatel/min**, 1,9 s rezerve pri 10/min |
+| Spust iz C1 in prijem | 0,5 s |
+| Lepilo zgoraj | 0,4 s |
+| Zapiranje pokrova | 0,5 s |
+| Krilca in pike | 0,5 s |
+| Stisk | 1,0 s |
+| Spust in odvoz iz postaje | 0,5 s |
+| **Skupaj** | **3,4 s** → do **17 škatel/min** (ravno faza 2 iz pravega projekta), 2,6 s rezerve pri 10/min |
 
-Hitrost traku ni več vezana na takt: trak teče 6 do 20 m/min (usklajeno z obstoječo linijo), škatle med čakanjem drsijo. Voziček vozi do 30 m/min.
+Hitrost traku ni vezana na takt: trak teče 6 do 20 m/min, usklajeno z obstoječo linijo.
 
 **Spremembe glede na varianto 2:**
 
@@ -256,41 +261,46 @@ Hitrost traku ni več vezana na takt: trak teče 6 do 20 m/min (usklajeno z obst
 |---|---|
 | Odpade zgornji pritisni jermen | −1.400 € |
 | Odpadejo vzmetna stranska vodila (stisk naredi prijemalo) | −600 € |
-| Linearna os 800 mm z zobatim jermenom (mehanika) | +900 € |
-| Servo motor s krmilnikom za os | +900 € |
-| Prijemalo: 2 cilindra + inox čeljusti, stiskalni cilinder | +550 € |
-| Energijska veriga za grete cevi in kable | +250 € |
-| Drsni trak (manjše trenje za akumulacijo) | +70 € |
+| Prijemalo: 2 cilindra + inox čeljusti z nastavljivim hodom | +400 € |
+| Zasučni cilinder za zapiranje pokrova z inox lopatico | +250 € |
+| 2 cilindra za zapiranje krilc | +200 € |
+| Drsni trak (manjše trenje, škatle čakajo na njem) | +70 € |
 | Senzor S4 (vrsta polna → ustavi dovod) | +90 € |
 | Manj mehanike za izdelavo v Srbiji (−20 h) | −500 € |
-| Več programiranja: sinhronizacija osi, prijem, šobe (+16 h) | +880 € |
 
 ### Razdelitev variante 3
 
 | Sklop | Material | Delo | Skupaj |
 |---|---|---|---|
 | Planiranje (140 h, naši) | | 7.700 € | 7.700 € |
-| Mehanika | 5.380 € | 2.000 € (Srbija) | 7.380 € |
-| Elektro (stroj + servo os + programiranje) | 4.075 € | 4.070 € | 8.145 € |
+| Mehanika | 4.230 € | 2.000 € (Srbija) | 6.230 € |
+| Elektro (stroj + programiranje) | 3.625 € | 3.190 € | 6.815 € |
 | Elektro omara | 3.000 € | 1.000 € (Srbija) | 4.000 € |
 | Stroj za lepljenje (1 enota, 3 šobe) | 6.000 € | | 6.000 € |
 | Montaža | 400 € prevoz | 400 € (Srbija) | 800 € |
 | Zagon (FAT + zagon pri stranki) | | 1.760 € | 1.760 € |
 | Logistika in kontrola pri kooperantu | 720 € | 880 € | 1.600 € |
-| **Lastna cena** | | | **37.385 €** |
-| Rezerva 10 % | | | 3.740 € |
-| **Lastna cena z rezervo** | | | **41.125 €** |
-| Dodatek 30 % | | | 12.340 € |
-| **Prodajna cena** | | | **≈ 53.500 € brez DDV** |
+| **Lastna cena** | | | **34.905 €** |
+| Rezerva 10 % | | | 3.490 € |
+| **Lastna cena z rezervo** | | | **38.395 €** |
+| Dodatek 30 % | | | 11.520 € |
+| **Prodajna cena** | | | **≈ 49.900 € brez DDV** |
 
-Preverba po pravilu: planiranje 14 %, elektro + omara 23 %. Povračilo za stranko: **~1,4 leta** pri eni izmeni, **~0,7 leta** pri dveh.
+Preverba po pravilu: planiranje **15 %**, elektro + omara **22 %**.
+Povračilo za stranko pri 49.900 €: **~1,3 leta** pri eni izmeni, **~0,7 leta** pri dveh.
 
-**Zakaj je to boljše od variante 2, čeprav je ~1.700 € dražje:**
-- škatle lahko prihajajo naključno, vrsta pred C1 je blažilnik za zastoje na dovodu;
-- lepilo nanašamo na škatlo, ki jo **trdno drži prijemalo**, zato je nanos na mala krilca natančen;
-- menjava formata: hod prijemala in odmik šob sta **parameter v receptu**, ročno ostaneta samo levo vodilo in višina zapore pokrova → 3 minute brez težav.
+**Primerjava variant:**
+
+| | V1 jermeni, vse doma | V2 jermeni, Srbija | V3 mirujoča postaja, Srbija |
+|---|---|---|---|
+| Prodajna cena | ~66.300 € | ~51.800 € | **~49.900 €** |
+| Največ škatel/min | ~12 | ~12 | **~17** |
+| Gibljivi deli ob traku | 3 jermeni | 1 jermen | **nič** |
+| Menjava formata | 3 ročice | 3 ročice | **levo vodilo + hod prijemala v receptu** |
+
+**Zakaj V3:** najcenejša, najhitrejša, najmanj delov, ki se obrabijo. Škatle lahko prihajajo naključno, vrsta pred postajo je blažilnik za zastoje. Lepilo gre na škatlo, ki miruje, zato je nanos na mala krilca natančen.
 
 **Tveganja variante 3:**
-- škatle drgnejo po traku, ko čakajo: drsni trak z malim trenjem, preveriti, da se lak ne praska;
-- grete cevi v energijski verigi se upogibajo pri vsakem ciklu (~5.000-krat na izmeno): cevi za gibljivo vgradnjo, menjava po urah obratovanja;
-- ena glava je ena točka odpovedi: rezervna šoba na zalogi, menjava v 10 minutah.
+- škatle drgnejo po traku, ko čakajo: drsni trak z malim trenjem, preveriti, da se lak in dno ne praskata;
+- ena postaja je ena točka odpovedi: rezervna šoba na zalogi, menjava v 10 minutah;
+- vrsta se ob počasnem odvozu podaljša nazaj na obstoječi dovod: S4 ustavi dovod, preden se to zgodi.
