@@ -1,10 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" font-family="Helvetica, Arial, sans-serif" font-size="11">
   <rect width="1000" height="720" fill="#ffffff"/>
   <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#345"/></marker></defs>
-  <text x="40" y="28" font-size="16" font-weight="bold" fill="#123">Kontrola jabolčnega čipsa · skupina A · naloga 2 · poševni trak 4 m</text>
-  <text x="40" y="46" fill="#555">Trak gre poševno gor: prekrite rezine zdrsnejo nazaj in se razmaknejo. Kameri slikata v reži, 0,5 m naprej je izpih.</text>
+  <text x="40" y="28" font-size="16" font-weight="bold" fill="#123">Kontrola jabolčnega čipsa · skupina A · naloga 2 · poševni trak 4 m (brez reže)</text>
+  <text x="40" y="46" fill="#555">En sam trak brez špranje. Zgoraj slika kamera na traku 0,5 m pred glavo, spodaj kamera v letu na glavi. Izpih takoj za glavo.</text>
 
-  <!-- tla in višine -->
   <line x1="20" y1="600" x2="980" y2="600" stroke="#999" stroke-width="2"/>
   <text x="24" y="616" font-size="9" fill="#777">tla</text>
   <g stroke="#ccc" stroke-dasharray="2 4"><line x1="40" y1="400" x2="960" y2="400"/><line x1="40" y1="200" x2="960" y2="200"/></g>
@@ -15,72 +14,62 @@
   <text x="30" y="340" fill="#777">SUŠILEC</text><text x="30" y="354" fill="#777" font-size="9">izhod na 1 m</text>
   <path d="M100 392 L112 396" stroke="#b5651d" stroke-width="2" marker-end="url(#a)"/>
 
-  <!-- poševni trak 1: 0–3,5 m -->
-  <line x1="100" y1="404" x2="774" y2="222" stroke="#345" stroke-width="12" stroke-linecap="round" opacity="0.25"/>
-  <line x1="100" y1="404" x2="774" y2="222" stroke="#345" stroke-width="2"/>
-  <circle cx="100" cy="404" r="7" fill="#fff" stroke="#345"/><circle cx="774" cy="222" r="7" fill="#345"/>
-  <!-- poševni trak 2: 3,5–4 m (za režo) -->
-  <line x1="784" y1="219" x2="873" y2="195" stroke="#345" stroke-width="12" stroke-linecap="round" opacity="0.25"/>
-  <line x1="784" y1="219" x2="873" y2="195" stroke="#345" stroke-width="2"/>
-  <circle cx="873" cy="195" r="7" fill="#345"/>
-  <text x="300" y="300" font-size="10" fill="#345" transform="rotate(-15 300 300)">poševni živilski trak ~15°, 15 do 20 m/min</text>
-  <!-- rezine -->
+  <!-- en poševni trak 0–4 m -->
+  <line x1="100" y1="404" x2="873" y2="195" stroke="#345" stroke-width="12" stroke-linecap="round" opacity="0.25"/>
+  <line x1="100" y1="404" x2="873" y2="195" stroke="#345" stroke-width="2"/>
+  <circle cx="100" cy="404" r="7" fill="#fff" stroke="#345"/><circle cx="873" cy="195" r="7" fill="#345"/>
+  <text x="300" y="300" font-size="10" fill="#345" transform="rotate(-15 300 300)">en poševni živilski trak ~15°, brez špranje, 15 do 20 m/min</text>
   <g fill="#c8a24a">
     <ellipse cx="130" cy="392" rx="9" ry="3" transform="rotate(-15 130 392)"/><ellipse cx="142" cy="389" rx="9" ry="3" transform="rotate(-15 142 389)"/>
     <ellipse cx="220" cy="368" rx="9" ry="3" transform="rotate(-15 220 368)"/><ellipse cx="330" cy="338" rx="9" ry="3" transform="rotate(-15 330 338)"/>
     <ellipse cx="450" cy="306" rx="9" ry="3" transform="rotate(-15 450 306)"/><ellipse cx="580" cy="271" rx="9" ry="3" transform="rotate(-15 580 271)"/>
-    <ellipse cx="700" cy="238" rx="9" ry="3" transform="rotate(-15 700 238)"/><ellipse cx="830" cy="203" rx="9" ry="3" transform="rotate(-15 830 203)"/>
+    <ellipse cx="700" cy="238" rx="9" ry="3" transform="rotate(-15 700 238)"/><ellipse cx="800" cy="211" rx="9" ry="3" transform="rotate(-15 800 211)"/>
   </g>
   <path d="M175 360 L150 368" stroke="#b5651d" stroke-width="1.5" marker-end="url(#a)"/>
   <text x="150" y="350" font-size="9" fill="#b5651d">prekrita rezina zdrsne nazaj</text>
-  <!-- noge -->
   <g stroke="#345" stroke-width="3"><line x1="140" y1="404" x2="140" y2="600"/><line x1="450" y1="314" x2="450" y2="600"/><line x1="740" y1="240" x2="740" y2="600"/><line x1="860" y1="205" x2="860" y2="600"/></g>
-  <rect x="104" y="414" width="22" height="22" fill="#2a5bd7"/><text x="100" y="450" font-size="9">M1 + FU</text>
+  <rect x="104" y="414" width="22" height="22" fill="#2a5bd7"/><text x="100" y="450" font-size="9">M + FU + E</text>
 
-  <!-- reža in kameri pri 3,5 m -->
-  <rect x="756" y="98" width="40" height="22" fill="#333"/><path d="M766 120 L779 220 L788 120" fill="#9cf" opacity="0.35"/>
-  <text x="640" y="104" font-size="9">kamera zgoraj + luč</text>
-  <path d="M810 120 L810 218" stroke="#345" marker-end="url(#a)"/><path d="M810 218 L810 120" stroke="#345" marker-end="url(#a)"/><text x="814" y="170" font-size="9" fill="#345">500</text>
-  <rect x="759" y="320" width="40" height="22" fill="#333"/><path d="M766 320 L779 222 L792 320" fill="#9cf" opacity="0.35"/>
-  <text x="640" y="350" font-size="9">kamera spodaj, gleda skozi režo</text>
-  <path d="M740 224 L740 318" stroke="#345" marker-end="url(#a)"/><path d="M740 318 L740 224" stroke="#345" marker-end="url(#a)"/><text x="716" y="276" font-size="9" fill="#345">500</text>
-  <text x="782" y="240" font-size="9" fill="#c00">reža</text>
+  <!-- zgornja kamera nad trakom pri 3,5 m -->
+  <rect x="756" y="98" width="40" height="22" fill="#333"/><path d="M766 120 L776 222 L788 120" fill="#9cf" opacity="0.35"/>
+  <text x="640" y="104" font-size="9">kamera ZGORAJ + luč</text>
+  <path d="M740 120 L740 218" stroke="#345" marker-end="url(#a)"/><path d="M740 218 L740 120" stroke="#345" marker-end="url(#a)"/><text x="716" y="170" font-size="9" fill="#345">500</text>
+  <path d="M776 186 L870 160" stroke="#c00" marker-end="url(#a)"/><path d="M870 160 L776 186" stroke="#c00" marker-end="url(#a)"/>
+  <text x="780" y="154" font-size="9" fill="#c00">0,5 m: izračun zgoraj</text>
 
-  <!-- 0,5 m do izpiha -->
-  <path d="M780 180 L870 156" stroke="#c00" marker-end="url(#a)"/><path d="M870 156 L780 180" stroke="#c00" marker-end="url(#a)"/>
-  <text x="784" y="152" font-size="9" fill="#c00">0,5 m: računanje</text>
+  <!-- spodnja kamera v letu na glavi -->
+  <rect x="868" y="300" width="40" height="22" fill="#333"/><path d="M876 300 L890 202 L902 300" fill="#9cf" opacity="0.35"/>
+  <text x="690" y="300" font-size="9">kamera SPODAJ →</text><text x="690" y="312" font-size="9">gleda rezino v letu</text>
+  <path d="M928 206 L928 296" stroke="#345" marker-end="url(#a)"/><path d="M928 296 L928 206" stroke="#345" marker-end="url(#a)"/><text x="932" y="256" font-size="9" fill="#345">500</text>
 
-  <!-- izpih na glavi traku -->
-  <rect x="884" y="206" width="14" height="10" fill="#e33"/><text x="902" y="214" font-size="9" fill="#c00">letev šob</text>
-  <path d="M890 218 L894 250" stroke="#c00" stroke-width="2" marker-end="url(#a)"/>
-  <!-- tirnici -->
-  <path d="M880 196 C910 196 935 220 950 260" stroke="#c8a24a" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
-  <path d="M880 200 C890 230 892 260 890 290" stroke="#c00" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
-  <!-- žleb dobre → škatla na tehtnici -->
-  <path d="M930 260 L975 260 L960 470 L945 470 Z" fill="#f5e6c8" stroke="#8a6d3b"/>
-  <rect x="915" y="480" width="70" height="70" fill="#f5e6c8" stroke="#8a6d3b"/><text x="924" y="520" font-size="9">ŠKATLA</text>
-  <rect x="910" y="550" width="80" height="14" fill="#555"/><text x="918" y="580" font-size="9">tehtnica</text>
-  <!-- žleb izmet -->
-  <path d="M868 300 L910 300 L900 470 L880 470 Z" fill="#fde" stroke="#c00"/>
-  <rect x="860" y="480" width="44" height="70" fill="none" stroke="#c00"/><text x="862" y="520" font-size="9" fill="#c00">IZMET</text>
+  <!-- tirnica in izpih -->
+  <path d="M878 195 C905 192 930 205 952 240" stroke="#c8a24a" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
+  <rect x="906" y="174" width="14" height="10" fill="#e33"/><text x="890" y="168" font-size="9" fill="#c00">šobe ~150 mm za glavo</text>
+  <path d="M912 186 L904 214" stroke="#c00" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M900 205 C895 230 885 260 880 290" stroke="#c00" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
 
-  <!-- ohišje vizije -->
-  <rect x="630" y="86" width="290" height="270" fill="none" stroke="#0a7" stroke-dasharray="6 4"/>
+  <!-- žleb dobre → škatla -->
+  <path d="M935 245 L980 245 L965 470 L950 470 Z" fill="#f5e6c8" stroke="#8a6d3b"/>
+  <rect x="920" y="480" width="66" height="70" fill="#f5e6c8" stroke="#8a6d3b"/><text x="927" y="520" font-size="9">ŠKATLA</text>
+  <rect x="915" y="550" width="76" height="14" fill="#555"/><text x="922" y="580" font-size="9">tehtnica</text>
+  <!-- žleb izmet (za spodnjo kamero, ob strani) -->
+  <path d="M800 340 L860 340 L850 470 L815 470 Z" fill="#fde" stroke="#c00"/>
+  <path d="M880 292 L850 340" stroke="#c00" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <rect x="800" y="480" width="60" height="70" fill="none" stroke="#c00"/><text x="808" y="520" font-size="9" fill="#c00">IZMET</text>
+
+  <rect x="630" y="86" width="345" height="270" fill="none" stroke="#0a7" stroke-dasharray="6 4"/>
   <text x="634" y="80" font-size="9" fill="#076">zaprto ohišje vizije in izpiha</text>
-  <!-- omara, zrak -->
   <rect x="300" y="470" width="100" height="80" fill="#eee" stroke="#345"/><text x="306" y="494" font-size="9">el. omara</text><text x="306" y="508" font-size="9">PLC + PC vizija</text><text x="306" y="522" font-size="9">HMI</text>
   <rect x="560" y="490" width="40" height="70" rx="10" fill="#eee" stroke="#345"/><text x="562" y="528" font-size="8">zrak 10 L</text>
 
-  <!-- dimenzija 4 m po traku -->
   <path d="M96 440 L872 232" stroke="#345" stroke-width="1" marker-end="url(#a)" transform="translate(0 70)"/>
   <text x="430" y="410" font-size="10" fill="#345" font-weight="bold" transform="rotate(-15 430 410)">4000 mm po traku</text>
 
-  <!-- legenda -->
   <g font-size="10" fill="#123">
-    <text x="40" y="640" font-weight="bold">1 prevzem pod sušilcem</text><text x="40" y="654">na 1 m, brez vmesnega traku</text>
-    <text x="250" y="640" font-weight="bold">2 poševni trak 0–3,5 m</text><text x="250" y="654">prekrite rezine zdrsnejo nazaj</text>
-    <text x="480" y="640" font-weight="bold">3 reža pri 3,5 m</text><text x="480" y="654">kameri zgoraj + spodaj, fokus 500 mm</text>
-    <text x="720" y="640" font-weight="bold">4 izpih na glavi, 4,0 m</text><text x="720" y="654">0,5 m za izračun, slabe v izmet</text>
-    <text x="720" y="676" font-weight="bold">5 dobre po žlebu v škatlo</text><text x="720" y="690">tehtnica javi polno škatlo</text>
+    <text x="40" y="640" font-weight="bold">1 prevzem pod sušilcem</text><text x="40" y="654">na 1 m</text>
+    <text x="220" y="640" font-weight="bold">2 poševni trak 0–4 m</text><text x="220" y="654">prekrite rezine zdrsnejo nazaj</text>
+    <text x="440" y="640" font-weight="bold">3 kamera zgoraj pri 3,5 m</text><text x="440" y="654">0,5 m časa za izračun</text>
+    <text x="640" y="640" font-weight="bold">4 kamera spodaj na glavi</text><text x="640" y="654">rezina v letu, hiter test pik</text>
+    <text x="820" y="640" font-weight="bold">5 izpih ~150 mm za glavo</text><text x="820" y="654">slabe v izmet, dobre v škatlo</text>
   </g>
 </svg>

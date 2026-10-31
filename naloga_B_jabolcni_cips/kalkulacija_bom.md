@@ -8,9 +8,9 @@ Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md
 
 - Prevzem **pod sušilcem na višini 1 m**, brez vmesnega traku in brez vibracijskega dodajalnika.
 - **Poševni trak 4 m, ~15° navzgor** (na koncu ~2 m visoko), teče hitreje od dovoda (15 do 20 m/min). Prekrite rezine na klancu zdrsnejo nazaj, zato se razmaknejo in ne ležijo ena na drugi.
-- Trak je iz dveh delov z **režo pri 3,5 m**: kamera zgoraj in kamera spodaj (skozi režo) slikata obe strani rezine, obe s fokusom 500 mm.
-- **0,5 m za izračun**: pri 20 m/min ima računalnik 1,5 s, da odloči in pošlje ukaz šobi.
-- **Izpih na glavi traku (4,0 m)**: rezine letijo čez rob, slabe dobijo sunek zraka v žleb za izmet, dobre letijo naprej v žleb, ki jih strese v **škatlo na tehtnici**.
+- **En trak brez špranje.** Zgornjo stran slika **kamera nad trakom pri 3,5 m** (fokus 500 mm); do glave traku je **0,5 m za izračun** (pri 20 m/min 1,5 s).
+- Spodnjo stran slika **kamera pod glavo traku**, ki gleda rezino **v letu**, ko zleti čez rob (fokus 500 mm). Ker je izpih blizu, za spodnjo stran uporabimo **hiter, preprost test temnih pik** (nekaj milisekund), zahtevnejšo analizo pa naredimo zgoraj, kjer je časa dovolj.
+- **Izpih ~150 mm za glavo traku**, v letu: slabe dobijo sunek zraka v žleb za izmet, dobre letijo naprej v žleb, ki jih strese v **škatlo na tehtnici**.
 
 ---
 
@@ -19,31 +19,30 @@ Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md
 **Mehanika**
 | # | Pozicija | Kol. | Cena |
 |---|---|---|---|
-| M1 | Poševni trak, del 1: 3,5 m × 500 mm, živilski PU z rahlo strukturo, inox okvir, valji | 1 | 2.300 € |
-| M2 | Poševni trak, del 2 za režo: 0,5 m × 500 mm | 1 | 500 € |
+| M1 | Poševni trak 4 m × 500 mm v enem kosu, živilski PU z rahlo strukturo, inox okvir, valji | 1 | 2.600 € |
 | M3 | Nosilna konstrukcija in noge do višine 2 m, inox | 1 | 600 € |
 | M4 | Žleb za dobre rezine do škatle, inox | 1 | 300 € |
 | M5 | Žleb in zabojnik za izmet, inox | 1 | 250 € |
 | M6 | Ohišje vizije in izpiha (inox + polikarbonat, zatemnjeno) | 1 | 900 € |
 | M7 | Nosilci kamer, luči in letve šob | 1 | 250 € |
-| | **Skupaj mehanika** | | **5.100 €** |
+| | **Skupaj mehanika** | | **4.900 €** |
 
 **Elektro in pnevmatika**
 | # | Pozicija | Kol. | Cena |
 |---|---|---|---|
-| E1 | Mali motor z reduktorjem (en na vsak del traku) | 2 | 500 € |
-| E2 | Frekvenčnik | 2 | 300 € |
+| E1 | Mali motor z reduktorjem | 1 | 250 € |
+| E2 | Frekvenčnik | 1 | 150 € |
 | E3 | Enkoder na traku | 1 | 100 € |
 | E4 | Letev hitrih ventilov za izpih, 32 kanalov, z izhodnim modulom | 1 | 2.700 € |
 | E5 | Zrak: rezervoar 10 L, filter za zrak brez olja, regulator, tlačno stikalo | 1 | 500 € |
 | E6 | Tehtnica pod škatlo (plošča, celica, pretvornik) | 1 | 600 € |
 | E7 | Senzorji (škatla na mestu, škatla polna), svetlobni stolpec, gobi, varnostni stikali | 1 | 450 € |
-| | **Skupaj elektro** | | **5.150 €** |
+| | **Skupaj elektro** | | **4.750 €** |
 
 **Vizija**
 | # | Pozicija | Kol. | Cena |
 |---|---|---|---|
-| V1 | Linijska barvna kamera z objektivom (zgoraj, spodaj skozi režo), fokus 500 mm | 2 | 3.000 € |
+| V1 | Linijska barvna kamera z objektivom (zgoraj nad trakom, spodaj pod glavo traku), fokus 500 mm | 2 | 3.000 € |
 | V2 | Linijska LED luč (brez bliskanja) | 2 | 1.000 € |
 | V3 | Industrijski PC za obdelavo slike | 1 | 1.500 € |
 | V4 | Zaščitno okno spodnje kamere, zračna zavesa | 1 | 200 € |
@@ -54,7 +53,7 @@ Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md
 |---|---|---|---|
 | O1 | Omara, PLC S7-1200, zaslon 4", varnostni rele, napajanje, sponke, kabli | 1 | 2.200 € |
 
-**Material skupaj: 18.150 €**
+**Material skupaj: 17.550 €**
 
 ## Delo
 
@@ -75,22 +74,22 @@ Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md
 | Sklop | Skupaj |
 |---|---|
 | Planiranje | 2.750 € |
-| Mehanika (material + izdelava) | 6.600 € |
-| Elektro (stroj + programiranje PLC) | 6.470 € |
+| Mehanika (material + izdelava) | 6.400 € |
+| Elektro (stroj + programiranje PLC) | 6.070 € |
 | Vizija (kamere, luči, PC + učenje) | 9.000 € |
 | Elektro omara (+ ožičenje) | 2.800 € |
 | Preizkus pri nas | 880 € |
 | Montaža in zagon | 1.320 € |
 | Logistika | 1.100 € |
-| **Lastna cena** | **30.920 €** |
-| Rezerva 10 % | 3.090 € |
-| **Lastna cena z rezervo** | **34.010 €** |
-| Dodatek 30 % | 10.200 € |
-| **Prodajna cena** | **≈ 44.200 € brez DDV** |
+| **Lastna cena** | **30.320 €** |
+| Rezerva 10 % | 3.030 € |
+| **Lastna cena z rezervo** | **33.350 €** |
+| Dodatek 30 % | 10.010 € |
+| **Prodajna cena** | **≈ 43.400 € brez DDV** |
 
-Največji del je **vizija** (20 % cene) in **izpih**, kar je pri optičnem sortirniku pričakovano. Poševni trak je prihranil vibracijski dodajalnik in odvodni trak (−3.200 € pri mehaniki), linijski kameri za režo pa sta dražji (+1.800 €).
+Največji del je **vizija** (20 % cene) in **izpih**, kar je pri optičnem sortirniku pričakovano. En poševni trak brez reže je prihranil vibracijski dodajalnik, odvodni trak in drugi pogon.
 
-**Če je treba ceneje:** 16 namesto 32 ventilov (−1.200 €, slabša ločljivost izmeta), brez tehtnice, polnjenje škatle po času (−600 €), kameri z navadnim (ne linijskim) senzorjem (−1.400 €, manj ostra slika v reži).
+**Če je treba ceneje:** 16 namesto 32 ventilov (−1.200 €, slabša ločljivost izmeta), brez tehtnice, polnjenje škatle po času (−600 €), kameri z navadnim (ne linijskim) senzorjem (−1.400 €, manj ostra slika pri gibanju).
 
 ## Povračilo za stranko
 
@@ -99,7 +98,7 @@ Predpostavka: ročno pregleduje in sortira **1 do 2 človeka na izmeno** (30 €
 | | 1 človek | 2 človeka |
 |---|---|---|
 | Neto prihranek na leto (1 izmena) | ~38.400 € | ~93.600 € |
-| **Povračilo pri 44.200 €** | **~1,2 leta** | **~0,5 leta** |
+| **Povračilo pri 43.400 €** | **~1,1 leta** | **~0,5 leta** |
 
 Zraven: enaka presoja napak ves dan, sledljivost (vsaka izločena rezina je posneta), manj plesnivih rezin pri kupcu.
 
@@ -109,7 +108,7 @@ Zraven: enaka presoja napak ves dan, sledljivost (vsaka izločena rezina je posn
 - **Varnost pri delu:** glava traku je na 2 m, zato dostop za čiščenje s stopnico ali podestom; zaščite na pogonih, varnostni stikali na ohišju vizije (ob odprtju ugasne izpih in trakovi), gobi.
 - **Tehnična tveganja:**
   1. rezine na klancu ne zdrsnejo dovolj (lepljive) → nastavljiv naklon in hitrost, trak z ustrezno strukturo; preizkus s pravim čipsom;
-  2. rezine se v reži zataknejo → reža ~20 mm, prehod čez ravno ploščico, obe kameri gledata isto točko;
+  2. rezina se v letu obrne, preden jo vidi spodnja kamera → kamera čisto ob glavi traku, kratek čas osvetlitve, položaj iz zgornje slike + enkoderja;
   3. lažni izmet (dobre izpihne) → učenje na pravih vzorcih, nastavljiv prag na zaslonu;
   4. drobtine na spodnji kameri → zračna zavesa, čiščenje okna v urniku;
   5. izpad zraka → rezervoar, tlačno stikalo, ob alarmu se trak ustavi.
