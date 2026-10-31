@@ -18,6 +18,8 @@ Osnova: povpraševanje (PDF, stran 2) in ustna navodila naročnika 31. 10. ob 11
 | Kameri | **fokus 500 mm od traku** (od linije, kjer letijo rezine) |
 | Iz PDF | nežno ravnanje, stik z živili, higiensko čiščenje, čim manj lomljenja, sledljivost, enostavne nastavitve in obravnava napak |
 
+> **Posodobljeno:** končni koncept je poševni trak 4 m od 1 m višine, reža s kamerama pri 3,5 m in izpih 0,5 m naprej. Glej `kalkulacija_bom.md` in `skica_cips.svg`. Spodnji predlog je prvi osnutek.
+
 ## Predlog poteka (4 m)
 
 ```mermaid
@@ -68,6 +70,6 @@ flowchart LR
 ## Naslednji koraki
 - [ ] iz videa oceniti, koliko rezin na minuto pride
 - [x] skica (tloris + stranski pogled): `skica_cips.svg`
-- [x] kosovnica in kalkulacija: `kalkulacija_bom.md` (~43.100 €)
+- [x] kosovnica in kalkulacija: `kalkulacija_bom.md` (~44.200 €)
 - [x] povračilo za stranko (v kalkulaciji; potrditi, koliko ljudi danes pregleduje)
 - [x] varnost, HACCP (tu je **neposreden stik z živilom**, zato inox, živilski trakovi, čiščenje), tveganja
