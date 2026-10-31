@@ -70,6 +70,6 @@ flowchart LR
 ## Naslednji koraki
 - [ ] iz videa oceniti, koliko rezin na minuto pride
 - [x] skica (tloris + stranski pogled): `skica_cips.svg`
-- [x] kosovnica in kalkulacija: `kalkulacija_bom.md` (~39.100 €, kameri dobavi stranka)
+- [x] kosovnica in kalkulacija: `kalkulacija_bom.md` (~42.200 € z vibracijsko mizo, kameri dobavi stranka)
 - [x] povračilo za stranko (v kalkulaciji; potrditi, koliko ljudi danes pregleduje)
 - [x] varnost, HACCP (tu je **neposreden stik z živilom**, zato inox, živilski trakovi, čiščenje), tveganja

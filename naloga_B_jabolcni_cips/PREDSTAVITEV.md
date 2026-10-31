@@ -23,7 +23,8 @@ Predstavitev: 8 minut + 4 minute vprašanj. Podrobnosti so v [`kalkulacija_bom.m
 
 ```mermaid
 flowchart LR
-    A[Sušilec<br/>izhod na 1 m] --> B[Poševni trak 4 m<br/>prekrite rezine<br/>zdrsnejo nazaj]
+    A[Sušilec<br/>izhod na 1 m] --> V[Vibracijska miza<br/>razprši po širini]
+    V --> B[Poševni trak 4 m<br/>prekrite rezine<br/>zdrsnejo nazaj]
     B --> C[Kamera zgoraj<br/>pri 3,5 m<br/>stran A]
     C -->|0,5 m za izračun| D[Glava traku<br/>kamera spodaj v letu<br/>stran B]
     D --> E{Napaka?}
@@ -33,11 +34,12 @@ flowchart LR
 
 ## 3. Naša rešitev (2:00)
 
-1. **Poševni trak 4 m × 500 mm**, en kos brez špranje, ~15° navzgor od 1 m do ~2 m. Teče 15 do 20 m/min, torej 3 do 4-krat hitreje od dovoda: rezine se razmaknejo, prekrite pa na klancu zdrsnejo nazaj.
-2. **Kamera zgoraj** nad trakom pri 3,5 m vidi zgornjo stran. Do glave traku je **0,5 m**, kar je pri 20 m/min **1,5 s za izračun**.
-3. **Kamera spodaj** pod glavo traku vidi spodnjo stran, ko rezina zleti čez rob. Tu je časa malo, zato samo hiter test temnih pik.
-4. **Zračni izpih** takoj za glavo: letev 32 hitrih ventilov čez širino, vsak pokriva ~15 mm. Slaba rezina dobi kratek sunek in pade v izmet. Rezine se nič ne dotakne, ni lomljenja.
-5. Dobre rezine letijo po žlebu v **škatlo na tehtnici**, ki javi, ko je polna.
+1. **Vibracijska miza** pod sušilcem prevzame kup rezin in jih razprši po celi širini.
+2. **Poševni trak 4 m × 500 mm**, en kos brez špranje, ~15° navzgor od 1 m do ~2 m. Teče 15 do 20 m/min, torej 3 do 4-krat hitreje od dovoda: rezine se razmaknejo, prekrite pa na klancu zdrsnejo nazaj.
+3. **Kamera zgoraj** nad trakom pri 3,5 m vidi zgornjo stran. Do glave traku je **0,5 m**, kar je pri 20 m/min **1,5 s za izračun**.
+4. **Kamera spodaj** pod glavo traku vidi spodnjo stran, ko rezina zleti čez rob. Tu je časa malo, zato samo hiter test temnih pik.
+5. **Zračni izpih** takoj za glavo: letev 32 hitrih ventilov čez širino, vsak pokriva ~15 mm. Slaba rezina dobi kratek sunek in pade v izmet. Rezine se nič ne dotakne, ni lomljenja.
+6. Dobre rezine letijo po žlebu v **škatlo na tehtnici**, ki javi, ko je polna.
 
 ### Skica
 
@@ -69,7 +71,7 @@ flowchart LR
 
 | Sklop | Izbira | Zakaj |
 |---|---|---|
-| Razporejanje | poševni trak, hitrejši od dovoda | brez vibratorja, prekrite rezine same zdrsnejo nazaj |
+| Razporejanje | vibracijska miza + poševni trak, hitrejši od dovoda | miza razprši po širini, na klancu prekrite rezine zdrsnejo nazaj |
 | Pregled | 2 kameri stranke + naši LED luči + PC za obdelavo slike | obe strani, enakomerna svetloba |
 | Izmet | zračni izpih, letev 32 ventilov | rezine tehtajo 1 do 3 g, ničesar se ne dotakne |
 | Zrak | lasten rezervoar, filter brez olja, tlačno stikalo | živilski zrak, zanesljivo (lekcija s škatlicami) |
@@ -77,7 +79,9 @@ flowchart LR
 | Polnjenje | škatla na tehtnici | polni se po masi, ne po kosih |
 
 **Alternative, ki smo jih pretehtali:**
-- **dva traka z obračanjem rezine** (pade s traka 1 na trak 2 in se obrne, obe kameri zgoraj): več časa za obe strani, a ne obrne se vsaka rezina; okoli 4.400 € dražje;
+- **dva traka z obračanjem rezine** (pade s traka 1 na trak 2 in se obrne, obe kameri zgoraj): več časa za obe strani, a ne obrne se vsaka rezina; okoli 4.400 € dražje (3D slika spodaj);
+![Alternativa z obračanjem (Luka)](trak-cips-2.png)
+
 - **mehanska loputa** za izmet: cenejša, a pri gostem toku vrže ven tudi dobre;
 - **delta robot z vakuumom**: nežen, a drag in ne dohaja gostega toka.
 
@@ -92,22 +96,22 @@ flowchart LR
 | Sklop | Znesek |
 |---|---|
 | Planiranje (konstrukcija, ocena tveganja, CE) | 2.750 € |
-| Mehanika (trak, nosilci, žlebova, ohišje; izdelava v Srbiji) | 6.400 € |
+| Mehanika (vibracijska miza, trak, nosilci, žlebova, ohišje; izdelava v Srbiji) | 8.600 € |
 | Elektro (motor, izpih, zrak, tehtnica, senzorji, PLC program) | 6.070 € |
 | Vizija (luči, PC, vgradnja kamer stranke, učenje napak) | 6.000 € |
 | Elektro omara | 2.800 € |
 | Preizkus pri nas, montaža in zagon | 2.200 € |
 | Logistika | 1.100 € |
-| **Lastna cena** | **27.320 €** |
-| Rezerva 10 % | 2.730 € |
-| Dodatek 30 % | 9.015 € |
-| **Prodajna cena** | **≈ 39.100 € brez DDV** (kameri dobavi stranka) |
+| **Lastna cena** | **29.520 €** |
+| Rezerva 10 % | 2.950 € |
+| Dodatek 30 % | 9.740 € |
+| **Prodajna cena** | **≈ 42.200 € brez DDV** (kameri dobavi stranka) |
 
 **Za stranko:** stroj nadomesti ročni pregled. En človek na izmeno stane okoli 55.000 €/leto.
 
 | | 1 človek | 2 človeka |
 |---|---|---|
-| **Povračilo** | **~1,0 leta** | **~0,4 leta** |
+| **Povračilo** | **~1,1 leta** | **~0,5 leta** |
 
 ## 8. Faze, merila in kaj rabimo od vas (0:30)
 
