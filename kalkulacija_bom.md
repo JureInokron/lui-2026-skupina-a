@@ -1,6 +1,6 @@
 # Stroj za zapiranje čajnih škatlic: rešitve, kosovnica in kalkulacija
 
-Skupina A, LUI 2026, 31. 10. 2026. Podlaga je debata skupine (`zapiski/2026-10-31_debata_sestava_masine.md`), skica je v `skica_sistema.svg`.
+Skupina A, LUI 2026, 31. 10. 2026. Podlaga je debata skupine (`zapiski/2026-10-31_debata_sestava_masine.md`), skica (varianta 3) je v `skica_sistema.svg`.
 Cene so **nabavne, brez DDV**. Kjer imamo Inokronove podatke, so označene z **[INO]** (dejanski računi in kalkulacije), ostale so tržne ocene **[ocena]**.
 
 ---
@@ -223,3 +223,74 @@ Povračilo za stranko pri 51.800 €: **~1,4 leta** pri eni izmeni, **~0,7 leta*
 - **Popravki po montaži so dlje**: zato FAT pri nas, preden gre stroj k stranki.
 - **Cenejši hot melt**: preveriti rezervne dele in servis v regiji stranke.
 - Druga možnost: prodajna cena ostane okoli 66.300 €, razlika gre v maržo (dodatek okoli 66 % namesto 30 %, zaslužek okoli 26.400 € namesto 11.960 €).
+
+---
+
+## 9. Varianta 3: ena leteča lepilna glava (odločitev skupine)
+
+**Koncept:** trak teče ves čas, je drsni (akumulacijski) in drsi pod škatlami, ki čakajo, zato **lopatke na traku niso potrebne**. Ob traku je **ena lepilna glava na vozičku s 3 šobami** (G1 linija zgoraj, G2 in G3 pike na strani). Voziček prime škatlo, jo pelje, zalepi, stisne in spusti, ostale škatle ga čakajo pred zadrževalnikom C1. Rabimo samo **eno hot melt enoto**.
+
+**Zaporedje v enem ciklu:**
+1. C1 spusti škatlo, voziček jo prime s strani (prijemalo z nastavljivim hodom = širina formata);
+2. G1 nariše linijo po celi dolžini, medtem ko voziček pelje škatlo;
+3. škatla gre mimo fiksne inox zapore, pokrov se zapre, stiskalni cilinder na vozičku ga pritisne;
+4. vodila zapreta stranski krilci, G2 in G3 naneseta pike, prijemalo jih stisne;
+5. stisk ≥ 1 s, voziček spusti škatlo na trak in se prazen vrne.
+
+**Čas cikla (zahteva 6 s pri 10 škatlah/min):**
+
+| Korak | Čas |
+|---|---|
+| Prijem | 0,3 s |
+| Nanos in vožnja s škatlo (do 800 mm) | 1,5 s |
+| Zapiranje in stisk | 1,2 s |
+| Spust | 0,3 s |
+| Vrnitev | 0,8 s |
+| **Skupaj** | **4,1 s** → do **14 škatel/min**, 1,9 s rezerve pri 10/min |
+
+Hitrost traku ni več vezana na takt: trak teče 6 do 20 m/min (usklajeno z obstoječo linijo), škatle med čakanjem drsijo. Voziček vozi do 30 m/min.
+
+**Spremembe glede na varianto 2:**
+
+| Sprememba | Razlika |
+|---|---|
+| Odpade zgornji pritisni jermen | −1.400 € |
+| Odpadejo vzmetna stranska vodila (stisk naredi prijemalo) | −600 € |
+| Linearna os 800 mm z zobatim jermenom (mehanika) | +900 € |
+| Servo motor s krmilnikom za os | +900 € |
+| Prijemalo: 2 cilindra + inox čeljusti, stiskalni cilinder | +550 € |
+| Energijska veriga za grete cevi in kable | +250 € |
+| Drsni trak (manjše trenje za akumulacijo) | +70 € |
+| Senzor S4 (vrsta polna → ustavi dovod) | +90 € |
+| Manj mehanike za izdelavo v Srbiji (−20 h) | −500 € |
+| Več programiranja: sinhronizacija osi, prijem, šobe (+16 h) | +880 € |
+
+### Razdelitev variante 3
+
+| Sklop | Material | Delo | Skupaj |
+|---|---|---|---|
+| Planiranje (140 h, naši) | | 7.700 € | 7.700 € |
+| Mehanika | 5.380 € | 2.000 € (Srbija) | 7.380 € |
+| Elektro (stroj + servo os + programiranje) | 4.075 € | 4.070 € | 8.145 € |
+| Elektro omara | 3.000 € | 1.000 € (Srbija) | 4.000 € |
+| Stroj za lepljenje (1 enota, 3 šobe) | 6.000 € | | 6.000 € |
+| Montaža | 400 € prevoz | 400 € (Srbija) | 800 € |
+| Zagon (FAT + zagon pri stranki) | | 1.760 € | 1.760 € |
+| Logistika in kontrola pri kooperantu | 720 € | 880 € | 1.600 € |
+| **Lastna cena** | | | **37.385 €** |
+| Rezerva 10 % | | | 3.740 € |
+| **Lastna cena z rezervo** | | | **41.125 €** |
+| Dodatek 30 % | | | 12.340 € |
+| **Prodajna cena** | | | **≈ 53.500 € brez DDV** |
+
+Preverba po pravilu: planiranje 14 %, elektro + omara 23 %. Povračilo za stranko: **~1,4 leta** pri eni izmeni, **~0,7 leta** pri dveh.
+
+**Zakaj je to boljše od variante 2, čeprav je ~1.700 € dražje:**
+- škatle lahko prihajajo naključno, vrsta pred C1 je blažilnik za zastoje na dovodu;
+- lepilo nanašamo na škatlo, ki jo **trdno drži prijemalo**, zato je nanos na mala krilca natančen;
+- menjava formata: hod prijemala in odmik šob sta **parameter v receptu**, ročno ostaneta samo levo vodilo in višina zapore pokrova → 3 minute brez težav.
+
+**Tveganja variante 3:**
+- škatle drgnejo po traku, ko čakajo: drsni trak z malim trenjem, preveriti, da se lak ne praska;
+- grete cevi v energijski verigi se upogibajo pri vsakem ciklu (~5.000-krat na izmeno): cevi za gibljivo vgradnjo, menjava po urah obratovanja;
+- ena glava je ena točka odpovedi: rezervna šoba na zalogi, menjava v 10 minutah.
