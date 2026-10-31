@@ -106,7 +106,7 @@ Odprto: lopatke za siguren poriv (gladek trak ne vleče zanesljivo) ali dovolj z
 
 ## 9. Kalkulacija (razbita, kot jo hoče)
 
-Okvirno, za orientacijo; predavatelj pove, koliko smo mimo.
+**Zamenjano s podrobno kalkulacijo v `kalkulacija_bom.md` (≈ 66.300 € prodajna cena).** Spodnja tabela je bila prva groba ocena.
 
 | Sklop | Vsebina | Okvirno |
 |---|---|---|
