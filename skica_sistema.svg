@@ -1,95 +1,110 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" font-family="Helvetica, Arial, sans-serif" font-size="11">
   <rect width="1000" height="660" fill="#ffffff"/>
   <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#345"/></marker></defs>
-  <text x="50" y="28" font-size="16" font-weight="bold" fill="#123">Stroj za zapiranje čajnih škatlic · skupina A · 2 m · varianta 3 (mirujoča lepilna postaja)</text>
-  <text x="50" y="46" fill="#555">Trak teče ves čas in drsi pod škatlami. Postaja s 3 šobami miruje: prime škatlo, zalepi, zapre, stisne in spusti. Ostale čakajo za njo.</text>
+  <text x="50" y="28" font-size="16" font-weight="bold" fill="#123">Stroj za lepljenje čajnih škatlic · skupina A · shema (po Lukovem 3D konceptu)</text>
+  <text x="50" y="46" fill="#555">Škatle se ves čas peljejo. Fiksne šobe proži enkoder, kriva inox vodila zaprejo pokrov, pritisni jermeni ga držijo ≥ 1 s.</text>
 
   <!-- ========== TLORIS ========== -->
   <text x="50" y="74" font-weight="bold" fill="#123">TLORIS (pogled od zgoraj)</text>
-  <rect x="0" y="120" width="48" height="100" fill="#eee" stroke="#999" stroke-dasharray="4 3"/>
-  <text x="4" y="236" fill="#777" font-size="10">obstoječi</text><text x="4" y="248" fill="#777" font-size="10">dovod</text>
-  <rect x="952" y="120" width="48" height="100" fill="#eee" stroke="#999" stroke-dasharray="4 3"/>
-  <text x="955" y="236" fill="#777" font-size="10">obstoječi</text><text x="955" y="248" fill="#777" font-size="10">odvod</text>
-  <rect x="50" y="120" width="900" height="100" fill="#dfe8f1" stroke="#345" stroke-width="1.5"/>
-  <text x="60" y="134" fill="#345" font-size="9">drsni trak 300 mm, teče ves čas</text>
-  <rect x="50" y="210" width="900" height="8" fill="#8a9"/>
-  <text x="640" y="232" fill="#2a5" font-size="10">desno fiksno vodilo (flat board), inox</text>
-  <rect x="50" y="140" width="380" height="5" fill="#c84"/>
-  <text x="60" y="116" fill="#a62" font-size="10">levo vodilo, nastavljivo z ročico + števec</text>
-  <path d="M300 100 L360 100" stroke="#345" stroke-width="2" marker-end="url(#a)"/>
-  <text x="366" y="104" fill="#345" font-size="10">smer, kratka stranica naprej</text>
+  <!-- vhodni trak -->
+  <rect x="20" y="130" width="190" height="80" fill="#dfe8f1" stroke="#345" stroke-width="1.5"/>
+  <!-- glavni del v ohišju 2000 mm -->
+  <rect x="210" y="130" width="560" height="80" fill="#dfe8f1" stroke="#345" stroke-width="1.5"/>
+  <!-- izhodni trak -->
+  <rect x="770" y="130" width="200" height="80" fill="#dfe8f1" stroke="#345" stroke-width="1.5"/>
+  <rect x="20" y="202" width="950" height="7" fill="#8a9"/>
+  <text x="560" y="224" fill="#2a5" font-size="10">desno fiksno vodilo (flat board), inox</text>
+  <rect x="120" y="132" width="650" height="5" fill="#c84"/>
+  <text x="300" y="124" fill="#a62" font-size="10">levo vodilo, nastavljivo z ročnim kolesom + števec (širina škatle)</text>
+  <!-- ohišje -->
+  <rect x="210" y="96" width="560" height="140" fill="none" stroke="#0a7" stroke-dasharray="6 4"/>
+  <path d="M212 90 L768 90" stroke="#345" marker-end="url(#a)"/><path d="M768 90 L212 90" stroke="#345" marker-end="url(#a)"/>
+  <text x="460" y="86" font-weight="bold" fill="#345">2000 mm</text>
+  <path d="M985 132 L985 208" stroke="#345" marker-end="url(#a)"/><text x="958" y="126" font-size="10">300 mm</text>
 
-  <!-- vrsta škatel -->
-  <g fill="#7b3b3b" opacity="0.85">
-    <rect x="150" y="176" width="58" height="34"/>
-    <rect x="210" y="176" width="58" height="34"/>
-    <rect x="270" y="176" width="58" height="34"/>
-    <rect x="330" y="176" width="58" height="34"/>
+  <!-- škatle -->
+  <g fill="#6aa84f" opacity="0.9">
+    <rect x="40" y="165" width="50" height="34"/><rect x="120" y="165" width="50" height="34"/>
+    <rect x="250" y="165" width="50" height="34"/><rect x="380" y="165" width="50" height="34"/>
+    <rect x="510" y="165" width="50" height="34"/><rect x="640" y="165" width="50" height="34"/>
+    <rect x="800" y="165" width="50" height="34"/><rect x="900" y="165" width="50" height="34"/>
   </g>
-  <text x="150" y="170" font-size="9" fill="#7b3b3b">vrsta: škatle čakajo, trak drsi pod njimi</text>
-  <circle cx="140" cy="160" r="6" fill="#fc0" stroke="#000"/><text x="128" y="158" font-size="9" text-anchor="end">S4 vrsta polna</text>
-  <rect x="396" y="150" width="8" height="62" fill="#555"/><text x="378" y="230" font-size="9">C1 ločilo</text>
-
-  <!-- mirujoča postaja -->
-  <rect x="430" y="140" width="130" height="78" fill="#fff2f2" stroke="#c00" stroke-width="2"/>
-  <text x="432" y="134" font-size="10" fill="#c00" font-weight="bold">MIRUJOČA LEPILNA POSTAJA</text>
-  <rect x="466" y="176" width="58" height="34" fill="#7b3b3b" opacity="0.85"/>
-  <rect x="470" y="186" width="50" height="5" fill="#e33"/>
-  <rect x="456" y="186" width="8" height="12" fill="#e33"/><rect x="526" y="186" width="8" height="12" fill="#e33"/>
-  <rect x="440" y="170" width="10" height="44" fill="#555"/><rect x="540" y="170" width="10" height="44" fill="#555"/>
-  <text x="436" y="236" font-size="9" fill="#900">G1 zgoraj, G2 + G3 ob strani,</text>
-  <text x="436" y="248" font-size="9" fill="#900">prijemalo, cilindri za pokrov in krilca</text>
-  <circle cx="420" cy="160" r="6" fill="#fc0" stroke="#000"/><text x="414" y="152" font-size="9" text-anchor="end">S1</text>
-  <circle cx="575" cy="160" r="6" fill="#fc0" stroke="#000"/><text x="584" y="158" font-size="9">S3 kontrola pokrova</text>
-
-  <!-- izhod -->
-  <g fill="#7b3b3b" opacity="0.85"><rect x="680" y="176" width="58" height="34"/><rect x="880" y="176" width="58" height="34"/></g>
-  <path d="M600 200 L660 200" stroke="#345" stroke-width="2" marker-end="url(#a)"/>
-  <rect x="862" y="136" width="14" height="30" fill="#555"/><text x="850" y="96" font-size="9">P potiskač izmeta</text>
-  <rect x="852" y="100" width="40" height="18" fill="none" stroke="#555"/>
-
-  <g stroke="#999" stroke-dasharray="3 3">
-    <line x1="410" y1="60" x2="410" y2="560"/>
-    <line x1="590" y1="60" x2="590" y2="560"/>
-    <line x1="815" y1="60" x2="815" y2="560"/>
+  <!-- 1 vhod: S1, C1 -->
+  <circle cx="182" cy="150" r="6" fill="#fc0" stroke="#000"/><text x="176" y="146" font-size="9" text-anchor="end">S1</text>
+  <rect x="192" y="140" width="8" height="62" fill="#555"/><text x="168" y="228" font-size="9">C1</text>
+  <!-- 2 šobe -->
+  <rect x="320" y="176" width="40" height="6" fill="#e33"/>
+  <rect x="330" y="140" width="10" height="10" fill="#e33"/><rect x="330" y="194" width="10" height="8" fill="#e33"/>
+  <circle cx="300" cy="150" r="6" fill="#fc0" stroke="#000"/><text x="296" y="146" font-size="9" text-anchor="end">S2</text>
+  <!-- 3 zapiranje pokrova -->
+  <path d="M420 198 C450 196 470 186 500 182" stroke="#123" stroke-width="4" fill="none"/>
+  <!-- 4 pritisni jermeni -->
+  <rect x="560" y="160" width="190" height="10" rx="5" fill="#2e8b57"/>
+  <rect x="560" y="190" width="190" height="10" rx="5" fill="#2e8b57" opacity="0.6"/>
+  <!-- 5/6 izhod -->
+  <circle cx="790" cy="150" r="6" fill="#fc0" stroke="#000"/><text x="800" y="146" font-size="9">S3</text>
+  <rect x="955" y="140" width="10" height="30" fill="#555"/>
+  <rect x="930" y="232" width="40" height="22" fill="none" stroke="#555"/><text x="932" y="268" font-size="9">zabojnik</text>
+  <!-- številke -->
+  <g font-size="11" font-weight="bold" fill="#fff">
+    <circle cx="110" cy="112" r="10" fill="#1f4e9c"/><text x="106" y="116">1</text>
+    <circle cx="340" cy="112" r="10" fill="#1f4e9c"/><text x="336" y="116">2</text>
+    <circle cx="460" cy="112" r="10" fill="#1f4e9c"/><text x="456" y="116">3</text>
+    <circle cx="655" cy="112" r="10" fill="#1f4e9c"/><text x="651" y="116">4</text>
+    <circle cx="860" cy="112" r="10" fill="#1f4e9c"/><text x="856" y="116">5</text>
+    <circle cx="960" cy="112" r="10" fill="#1f4e9c"/><text x="956" y="116">6</text>
   </g>
+  <path d="M60 250 L120 250" stroke="#345" stroke-width="2" marker-end="url(#a)"/><text x="126" y="254" fill="#345" font-size="10">smer, kratka stranica naprej</text>
 
   <!-- ========== STRANSKI POGLED ========== -->
   <text x="50" y="300" font-weight="bold" fill="#123">STRANSKI POGLED</text>
-  <rect x="50" y="460" width="900" height="14" rx="7" fill="#dfe8f1" stroke="#345" stroke-width="1.5"/>
-  <circle cx="57" cy="467" r="7" fill="#fff" stroke="#345"/><circle cx="943" cy="467" r="7" fill="#345"/>
-  <text x="800" y="494" font-size="9">M + FU, enkoder E</text>
-  <g stroke="#345" stroke-width="3"><line x1="80" y1="474" x2="80" y2="540"/><line x1="920" y1="474" x2="920" y2="540"/><line x1="300" y1="474" x2="300" y2="540"/></g>
-  <text x="310" y="536" font-size="9">nastavljive noge, višina = obstoječa linija</text>
-  <g fill="#7b3b3b" opacity="0.85">
-    <rect x="150" y="430" width="58" height="30"/><rect x="210" y="430" width="58" height="30"/><rect x="270" y="430" width="58" height="30"/><rect x="330" y="430" width="58" height="30"/>
-    <rect x="466" y="430" width="58" height="30"/>
-    <rect x="680" y="430" width="58" height="30"/>
+  <rect x="20" y="460" width="190" height="12" rx="6" fill="#dfe8f1" stroke="#345"/>
+  <rect x="210" y="460" width="560" height="12" rx="6" fill="#dfe8f1" stroke="#345" stroke-width="1.5"/>
+  <rect x="770" y="460" width="200" height="12" rx="6" fill="#dfe8f1" stroke="#345"/>
+  <rect x="10" y="470" width="22" height="22" fill="#2a5bd7"/><text x="8" y="506" font-size="9">M1</text>
+  <rect x="955" y="470" width="22" height="22" fill="#2a5bd7"/><text x="952" y="506" font-size="9">M2</text>
+  <text x="560" y="490" font-size="9">M + FU, enkoder E na glavnem traku</text>
+  <g stroke="#345" stroke-width="3"><line x1="60" y1="472" x2="60" y2="540"/><line x1="230" y1="472" x2="230" y2="540"/><line x1="750" y1="472" x2="750" y2="540"/><line x1="930" y1="472" x2="930" y2="540"/></g>
+  <!-- škatle -->
+  <g fill="#6aa84f" opacity="0.9">
+    <rect x="40" y="432" width="50" height="28"/><rect x="120" y="432" width="50" height="28"/>
+    <rect x="250" y="432" width="50" height="28"/><rect x="380" y="432" width="50" height="28"/>
+    <rect x="510" y="432" width="50" height="28"/><rect x="640" y="432" width="50" height="28"/>
+    <rect x="800" y="432" width="50" height="28"/>
   </g>
-  <path d="M208 430 L226 408" stroke="#7b3b3b" stroke-width="3"/><path d="M268 430 L286 408" stroke="#7b3b3b" stroke-width="3"/><path d="M328 430 L346 408" stroke="#7b3b3b" stroke-width="3"/><path d="M388 430 L406 408" stroke="#7b3b3b" stroke-width="3"/>
-  <rect x="396" y="440" width="8" height="20" fill="#555"/>
-  <!-- postaja: okvir nad trakom -->
-  <rect x="430" y="350" width="130" height="14" fill="#c9d3dc" stroke="#345"/>
-  <line x1="436" y1="364" x2="436" y2="460" stroke="#345" stroke-width="3"/><line x1="554" y1="364" x2="554" y2="460" stroke="#345" stroke-width="3"/>
-  <rect x="470" y="400" width="50" height="14" fill="#e33"/><text x="470" y="396" font-size="9" fill="#900">G1 (cela dolžina)</text>
-  <rect x="476" y="364" width="10" height="36" fill="#555"/><text x="398" y="380" font-size="9">stisk/pokrov</text>
-  <path d="M524 430 L540 414" stroke="#123" stroke-width="3"/><circle cx="540" cy="414" r="4" fill="#123"/><text x="566" y="420" font-size="9">zasučni cilinder zapre pokrov</text>
-  <!-- hot melt -->
-  <rect x="140" y="320" width="100" height="40" fill="#fdd" stroke="#c00"/><text x="146" y="338" font-size="9" fill="#900">HOT MELT enota</text><text x="146" y="351" font-size="9" fill="#900">3 šobe, ~170 °C</text>
-  <path d="M240 340 C330 340 420 345 470 400" stroke="#c00" stroke-width="2" fill="none"/>
-  <text x="250" y="330" font-size="9" fill="#900">grete cevi (fiksne)</text>
-  <circle cx="575" cy="410" r="6" fill="#fc0" stroke="#000"/>
-  <rect x="120" y="310" width="760" height="168" fill="none" stroke="#0a7" stroke-dasharray="6 4"/>
-  <text x="700" y="304" font-size="9" fill="#076">zaščitni pokrov PC + vrata z varn. stikali</text>
-  <rect x="885" y="330" width="8" height="40" fill="#555"/><circle cx="889" cy="326" r="5" fill="#2c2"/><circle cx="889" cy="316" r="5" fill="#fc0"/><circle cx="889" cy="306" r="5" fill="#e33"/>
-  <rect x="930" y="490" width="50" height="60" fill="#eee" stroke="#345"/><text x="934" y="520" font-size="8">el. omara</text><text x="934" y="532" font-size="8">PLC+HMI</text>
+  <path d="M90 432 L108 410" stroke="#6aa84f" stroke-width="3"/><path d="M170 432 L188 410" stroke="#6aa84f" stroke-width="3"/>
+  <path d="M300 432 L318 410" stroke="#6aa84f" stroke-width="3"/><path d="M430 432 L446 414" stroke="#6aa84f" stroke-width="3"/>
+  <rect x="192" y="440" width="8" height="20" fill="#555"/>
+  <!-- šobe -->
+  <rect x="325" y="400" width="14" height="22" fill="#e33"/><rect x="345" y="400" width="14" height="22" fill="#e33"/>
+  <text x="300" y="392" font-size="9" fill="#900">šobe G1 (zgoraj), G2 + G3 (strani)</text>
+  <!-- hot melt spodaj -->
+  <rect x="300" y="500" width="110" height="40" fill="#fdd" stroke="#c00"/><text x="306" y="518" font-size="9" fill="#900">HOT MELT enota</text><text x="306" y="531" font-size="9" fill="#900">pod trakom, ~170 °C</text>
+  <path d="M355 500 C355 470 250 380 332 400" stroke="#c00" stroke-width="2" fill="none"/>
+  <!-- kriva vodila -->
+  <path d="M440 410 C470 410 490 425 505 432" stroke="#123" stroke-width="4" fill="none"/>
+  <text x="430" y="400" font-size="9">kriva inox vodila zaprejo pokrov</text>
+  <!-- pritisni jermeni -->
+  <rect x="560" y="418" width="190" height="12" rx="6" fill="#2e8b57"/>
+  <circle cx="566" cy="424" r="6" fill="#999"/><circle cx="744" cy="424" r="6" fill="#999"/>
+  <text x="566" y="410" font-size="9" fill="#1e6b3e">pritisni jermen 600 mm, višina z ročnim kolesom</text>
+  <!-- S3 + izmet -->
+  <circle cx="790" cy="410" r="6" fill="#fc0" stroke="#000"/>
+  <rect x="955" y="434" width="10" height="26" fill="#555"/>
+  <!-- ohišje, svetila, omara -->
+  <rect x="210" y="340" width="560" height="136" fill="none" stroke="#0a7" stroke-dasharray="6 4"/>
+  <text x="214" y="334" font-size="9" fill="#076">ohišje PC + vrata z varn. stikali</text>
+  <rect x="740" y="300" width="8" height="40" fill="#555"/><circle cx="744" cy="296" r="5" fill="#2c2"/><circle cx="744" cy="286" r="5" fill="#fc0"/><circle cx="744" cy="276" r="5" fill="#e33"/>
+  <rect x="560" y="500" width="110" height="46" fill="#eee" stroke="#345"/><text x="566" y="518" font-size="9">el. omara pod trakom</text><text x="566" y="532" font-size="9">PLC + HMI, gobi</text>
 
-  <!-- ========== ZONE ========== -->
+  <!-- legenda -->
   <g font-size="10" fill="#123">
-    <text x="62" y="578">0–800</text><text x="62" y="592" font-weight="bold">1 vhod in vrsta</text><text x="62" y="606">S4 polno, C1 ločilo</text>
-    <text x="416" y="578">800–1200</text><text x="416" y="592" font-weight="bold">2 lepilna postaja (miruje)</text><text x="416" y="606">prijem → G1 → pokrov → G2, G3 → stisk ≥ 1 s</text>
-    <text x="596" y="624">1200–1700</text><text x="596" y="638" font-weight="bold">3 odvoz, S3</text>
-    <text x="822" y="578">1700–2000</text><text x="822" y="592" font-weight="bold">4 izhod</text><text x="822" y="606">izmet P</text>
+    <text x="50" y="580" font-weight="bold">1 vhodni trak</text><text x="50" y="594">S1 + C1 razmak, enkoder</text>
+    <text x="210" y="580" font-weight="bold">2 lepilne šobe</text><text x="210" y="594">S2 začetek/konec škatle</text>
+    <text x="380" y="580" font-weight="bold">3 zapiranje pokrova</text><text x="380" y="594">kriva inox vodila</text>
+    <text x="540" y="580" font-weight="bold">4 pritisni jermeni</text><text x="540" y="594">stisk ≥ 1 s med vožnjo</text>
+    <text x="710" y="580" font-weight="bold">5 izhodni trak</text><text x="710" y="594">S3 kontrola pokrova</text>
+    <text x="860" y="580" font-weight="bold">6 izmet</text><text x="860" y="594">potiskač v zabojnik</text>
   </g>
-  <text x="50" y="656" font-size="10" fill="#555">S = senzor · C1 = ločilni cilinder · G = šoba hot melt · P = potiskač · M = motor z reduktorjem · FU = frekvenčnik · E = enkoder RLS. Mere v mm od vhoda.</text>
+  <text x="50" y="630" font-size="10" fill="#555">S = senzor · C1 = zadrževalni cilinder · G = šoba hot melt · M = motor z reduktorjem · FU = frekvenčnik · E = enkoder RLS. Shema, mere niso v merilu.</text>
 </svg>

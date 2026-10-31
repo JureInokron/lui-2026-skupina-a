@@ -304,3 +304,29 @@ Povračilo za stranko pri 44.400 €: **~1,2 leta** pri eni izmeni, **~0,6 leta*
 - škatle drgnejo po traku, ko čakajo: drsni trak z malim trenjem, preveriti, da se lak in dno ne praskata;
 - ena postaja je ena točka odpovedi: rezervna šoba na zalogi, menjava v 10 minutah;
 - vrsta se ob počasnem odvozu podaljša nazaj na obstoječi dovod: S4 ustavi dovod, preden se to zgodi.
+
+---
+
+## 10. KONČNA IZBIRA: koncept po Lukovem 3D modelu
+
+Končni koncept je **varianta 2** (škatle se peljejo, fiksne šobe, kriva inox vodila za pokrov, pritisni jermeni), narejena po Lukovem 3D konceptu (`3d model.png`), s **planiranjem, zmanjšanim na 70 h**.
+
+| Sklop | Skupaj |
+|---|---|
+| Planiranje (70 h) | 3.850 € |
+| Mehanika | 8.460 € |
+| Elektro (stroj + programiranje) | 5.925 € |
+| Elektro omara | 4.000 € |
+| Stroj za lepljenje (1 enota, 3 šobe) | 6.000 € |
+| Montaža | 800 € |
+| Zagon | 1.760 € |
+| Logistika in kontrola pri kooperantu | 1.600 € |
+| **Lastna cena** | **32.395 €** |
+| Rezerva 10 % | 3.240 € |
+| **Lastna cena z rezervo** | **35.635 €** |
+| Dodatek 30 % | 10.690 € |
+| **Prodajna cena** | **≈ 46.300 € brez DDV** |
+
+Planiranje 8 % cene, elektro + omara 21 %. Povračilo za stranko: **~1,2 leta** pri eni izmeni, **~0,6 leta** pri dveh.
+
+Mirujoča postaja (varianta 3, poglavje 9) ostane kot cenejša alternativa (~44.400 €).

@@ -4,9 +4,10 @@ Delavnica LEOSS / LUI, 30. in 31. 10. 2026. Naloga skupine A: **avtomatsko zapir
 
 **Za predstavitev odpri [`PREDSTAVITEV.md`](PREDSTAVITEV.md).**
 
-- `PREDSTAVITEV.md` — končna rešitev (varianta 3, mirujoča lepilna postaja), blokovna shema, skica, izbira tehnologij, varnost, cena, povračilo, vprašanja
-- `skica_sistema.svg` — tloris in stranski pogled
-- `kalkulacija_bom.md` — kosovnica, delo, vse tri variante cene in primerjava
+- `PREDSTAVITEV.md` — končna rešitev (po Lukovem 3D konceptu: fiksne šobe, kriva vodila, pritisni jermeni), blokovna shema, skica, izbira tehnologij, varnost, cena, povračilo, vprašanja
+- `skica_sistema.svg` — shema (tloris in stranski pogled)
+- `3d model.png` — 3D koncept (Luka)
+- `kalkulacija_bom.md` — kosovnica, delo, variante cene; končna izbira je v poglavju 10
 - `plan_zapiranje_cajnih_skatlic.md` — delovni plan skupine in zahteve naročnika (prvi osnutek, koncept se je od takrat spremenil)
 - `zapiski/` — zapiski debat skupine
 - `LUI_2026_Dve_povprasevanji_za_skupini.pdf` — povpraševanje

@@ -1,6 +1,6 @@
 # LUI Scaleup Journey 2026 · Skupina A · Avtomatsko zapiranje čajnih škatlic (LUI-RFQ-01)
 
-> **Delovni osnutek.** Končna rešitev je mirujoča lepilna postaja (varianta 3), glej `PREDSTAVITEV.md`.
+> **Delovni osnutek.** Končna rešitev je v `PREDSTAVITEV.md`.
 
 Plan za delo skupine in za 8-minutno predstavitev. Sestavljeno 31. 10. 2026 iz povpraševanja (PDF LEOSS), večernega pogovora 30. 10. in jutranjih navodil 31. 10. Internet je dovoljen (včerajšnja prepoved je bila šala).
 
