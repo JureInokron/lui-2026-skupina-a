@@ -15,6 +15,7 @@ Osnova: povpraševanje (PDF, stran 2) in ustna navodila naročnika 31. 10. ob 11
 | Vhod | modri trak naročnika odstranimo, **naš trak se priklopi direktno pod sušilec** |
 | Hitrost | dovod **okoli 5 m/min**; požreti moramo vse, kar pride (količina kot na videu) |
 | Pogoj | **rezine se ne smejo prekrivati**, sicer jih kamera ne vidi |
+| Kameri | **fokus 500 mm od traku** (od linije, kjer letijo rezine) |
 | Iz PDF | nežno ravnanje, stik z živili, higiensko čiščenje, čim manj lomljenja, sledljivost, enostavne nastavitve in obravnava napak |
 
 ## Predlog poteka (4 m)
@@ -34,6 +35,13 @@ flowchart LR
 | 2 Pospeševalni trak | ~1,6 m | teče 4 do 5-krat hitreje od dovoda, zato se rezine razmaknejo in ne prekrivajo |
 | 3 Pregled in izmet | ~0,4 m | rezine letijo čez konec traku; dve linijski kameri (zgoraj, spodaj) ju vidita v letu z obeh strani, šobe za zrak izpihnejo slabe |
 | 4 Odvod v škatlo | ~1,2 m | dobre na kratek trak, ki jih strese v škatlo na tehtnici; ob polni masi menjava škatle |
+
+## Kameri: 500 mm fokusa
+
+- zgornja kamera visi **500 mm nad** linijo leta, spodnja je **500 mm pod** njo, obe gledata pravokotno na rezine, vsaka s svojo lučjo (linijska LED, ki ne bliska);
+- zato rabimo pod koncem pospeševalnega traku **vsaj ~600 mm prostora** (kamera + ohišje), trak mora biti **na višini ~1.000 mm ali več**, odvodni trak in žleb za izmet pa nižje;
+- spodnja kamera gleda navzgor, zato jo zaščitimo s steklom in zračno zaveso (drobtine padajo nanjo), steklo se čisti brez orodja;
+- pri 500 mm in tipičnem objektivu ena kamera pokrije **širino traku okoli 400 do 600 mm**; če je trak širši, dve kameri na stran.
 
 ## Izmet: kako
 
