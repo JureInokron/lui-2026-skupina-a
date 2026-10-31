@@ -68,7 +68,7 @@ flowchart LR
 | Hitrost trakov | 15 do 20 m/min (3 do 4-krat hitreje → razmak med rezinami) |
 | Čas od kamere do izpiha | 0,5 m / 20 m/min = **1,5 s** (na obeh postajah) |
 | Padec za obrat | ~150 mm, nastavljiv |
-| Ventili | 32 na letev, vsak ~15 mm širine, odziv 1 do 3 ms |
+| Ventili | 16 na letev, vsak ~30 mm širine, odziv 1 do 3 ms |
 
 ## 5. Izbira tehnologij (1:00)
 
@@ -77,13 +77,13 @@ flowchart LR
 | Razporejanje | vibracijska miza + poševni trak, hitrejši od dovoda | miza razprši po širini, prekrite rezine zdrsnejo nazaj |
 | Pregled obeh strani | obračanje rezine pri padcu s traka 1 na trak 2 | obe kameri zgoraj, obe imata dovolj časa, ni špranje |
 | Vision | sistem stranke (kameri, luči, obdelava) | ga že ima in pozna; mi ga vgradimo in povežemo z izpihoma |
-| Izmet | zračni izpih, 2 letvi po 32 ventilov | rezine tehtajo 1 do 3 g, ničesar se ne dotakne |
-| Zrak | rezervoar 20 L, filter brez olja, tlačno stikalo | živilski zrak, zanesljivo (lekcija s škatlicami) |
+| Izmet | zračni izpih, 2 letvi po 16 ventilov | rezine tehtajo 1 do 3 g, ničesar se ne dotakne |
+| Zrak | rezervoar 10 L, filter brez olja, tlačno stikalo | živilski zrak, zanesljivo (lekcija s škatlicami) |
 | Krmiljenje | PLC Siemens S7-1200 + zaslon, enkoder na vsakem traku | točen položaj rezine do izpiha |
 | Polnjenje | škatla na tehtnici | polni se po masi |
 
 **Alternative, ki smo jih pretehtali:**
-- **en trak s kamero spodaj v letu** (brez obračanja): okoli 8.500 € ceneje, a spodaj je za odločitev zelo malo časa in drobtine padajo na kamero;
+- **en trak s kamero spodaj v letu** (brez obračanja): okoli 6.000 € ceneje, a spodaj je za odločitev zelo malo časa in drobtine padajo na kamero;
 - **mehanska loputa** za izmet: cenejša, a pri gostem toku vrže ven tudi dobre;
 - **delta robot z vakuumom**: nežen, a drag in ne dohaja gostega toka.
 
@@ -97,23 +97,23 @@ flowchart LR
 
 | Sklop | Znesek |
 |---|---|
-| Planiranje (konstrukcija, ocena tveganja, CE) | 3.300 € |
-| Mehanika (vibracijska miza, 2 traka, prag, žlebovi, ohišje; izdelava v Srbiji) | 9.800 € |
-| Elektro (2 pogona, 2 letvi izpiha, zrak, tehtnica, senzorji, PLC program) | 9.700 € |
+| Planiranje (konstrukcija, ocena tveganja, CE) | 2.200 € |
+| Mehanika (vibracijska miza, 2 traka, prag, žlebovi, pokrova; izdelava v Srbiji) | 8.200 € |
+| Elektro (2 pogona, 2 letvi izpiha, zrak, tehtnica, senzorji, PLC program) | 7.100 € |
 | Priklop vision sistema stranke na izpiha | 880 € |
-| Elektro omara | 3.150 € |
-| Preizkus pri nas, montaža in zagon | 2.640 € |
-| Logistika | 1.100 € |
-| **Lastna cena** | **30.570 €** |
-| Rezerva 10 % | 3.060 € |
-| Dodatek 30 % | 10.090 € |
-| **Prodajna cena** | **≈ 43.700 € brez DDV** (vision dobavi stranka) |
+| Elektro omara | 2.550 € |
+| Preizkus pri nas, montaža in zagon | 1.760 € |
+| Logistika | 800 € |
+| **Lastna cena** | **23.490 €** |
+| Rezerva 10 % | 2.350 € |
+| Dodatek 30 % | 7.750 € |
+| **Prodajna cena** | **≈ 33.600 € brez DDV** (vision dobavi stranka) |
 
 **Za stranko:** stroj nadomesti ročni pregled. En človek na izmeno stane okoli 55.000 €/leto.
 
 | | 1 človek | 2 človeka |
 |---|---|---|
-| **Povračilo** | **~1,1 leta** | **~0,5 leta** |
+| **Povračilo** | **~0,9 leta** | **~0,4 leta** |
 
 ## 8. Faze, merila in kaj rabimo od vas (0:30)
 
@@ -136,4 +136,4 @@ flowchart LR
 - **Kaj, če se rezina ne obrne?** Prag in višino padca nastavimo na vašem čipsu; cilj je ≥ 90 %. Simulacija pokaže, pri kateri višini se obrne največ rezin.
 - **Zakaj dva izmeta?** Po obračanju se položaj rezine spremeni, zato je varneje izločiti slabe takoj za vsako kamero.
 - **Zakaj zrak in ne mehanika?** Rezine so lahke in krhke; zrak jih ne poškoduje in je dovolj hiter za gost tok.
-- **Kaj, če zmanjka zraka?** Rezervoar 20 L in tlačno stikalo; ob padcu tlaka se trakova ustavita, da slabe ne gredo v škatlo.
+- **Kaj, če zmanjka zraka?** Rezervoar 10 L in tlačno stikalo; ob padcu tlaka se trakova ustavita, da slabe ne gredo v škatlo.
