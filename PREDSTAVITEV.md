@@ -45,9 +45,11 @@ flowchart LR
 
 ![Skica sistema](skica_sistema.svg)
 
-### Skica (Luka)
+### 3D koncept (Luka)
 
-> Lukova skica pride sem (`skica_luka.png`).
+![3D koncept stroja](3d%20model.png)
+
+*Konceptna slika: razporeditev in nepodane mere so ilustrativne. Vhodni trak (1), lepilne šobe (2), zapiranje pokrova (3), pritisni del (4), izhodni trak (5), izmet (6).*
 
 ## 4. Izračun (vključeno v 3)
 
