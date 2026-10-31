@@ -67,7 +67,7 @@ flowchart LR
 
 ## Naslednji koraki
 - [ ] iz videa oceniti, koliko rezin na minuto pride
-- [ ] skica (tloris + stranski pogled)
-- [ ] kosovnica in kalkulacija po sklopih (planiranje, mehanika, elektro, omara, vizija, montaža, zagon) + 30 %
-- [ ] povračilo za stranko (koliko ljudi danes ročno pregleduje)
-- [ ] varnost, HACCP (tu je **neposreden stik z živilom**, zato inox, živilski trakovi, čiščenje), tveganja
+- [x] skica (tloris + stranski pogled): `skica_cips.svg`
+- [x] kosovnica in kalkulacija: `kalkulacija_bom.md` (~43.100 €)
+- [x] povračilo za stranko (v kalkulaciji; potrditi, koliko ljudi danes pregleduje)
+- [x] varnost, HACCP (tu je **neposreden stik z živilom**, zato inox, živilski trakovi, čiščenje), tveganja
