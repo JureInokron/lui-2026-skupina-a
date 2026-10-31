@@ -272,7 +272,7 @@ Hitrost traku ni vezana na takt: trak teče 6 do 20 m/min, usklajeno z obstoječ
 
 | Sklop | Material | Delo | Skupaj |
 |---|---|---|---|
-| Planiranje (140 h, naši) | | 7.700 € | 7.700 € |
+| Planiranje (70 h, naši: konstrukcija 50 h, ocena tveganja in CE 20 h) | | 3.850 € | 3.850 € |
 | Mehanika | 4.230 € | 2.000 € (Srbija) | 6.230 € |
 | Elektro (stroj + programiranje) | 3.625 € | 3.190 € | 6.815 € |
 | Elektro omara | 3.000 € | 1.000 € (Srbija) | 4.000 € |
@@ -280,20 +280,20 @@ Hitrost traku ni vezana na takt: trak teče 6 do 20 m/min, usklajeno z obstoječ
 | Montaža | 400 € prevoz | 400 € (Srbija) | 800 € |
 | Zagon (FAT + zagon pri stranki) | | 1.760 € | 1.760 € |
 | Logistika in kontrola pri kooperantu | 720 € | 880 € | 1.600 € |
-| **Lastna cena** | | | **34.905 €** |
-| Rezerva 10 % | | | 3.490 € |
-| **Lastna cena z rezervo** | | | **38.395 €** |
-| Dodatek 30 % | | | 11.520 € |
-| **Prodajna cena** | | | **≈ 49.900 € brez DDV** |
+| **Lastna cena** | | | **31.055 €** |
+| Rezerva 10 % | | | 3.105 € |
+| **Lastna cena z rezervo** | | | **34.160 €** |
+| Dodatek 30 % | | | 10.250 € |
+| **Prodajna cena** | | | **≈ 44.400 € brez DDV** |
 
-Preverba po pravilu: planiranje **15 %**, elektro + omara **22 %**.
-Povračilo za stranko pri 49.900 €: **~1,3 leta** pri eni izmeni, **~0,7 leta** pri dveh.
+Planiranje je zmanjšano na 70 h, ker je mirujoča postaja preprosta (ni osi, ni jermenov) → **9 %** cene namesto 15 %; elektro + omara **24 %**.
+Povračilo za stranko pri 44.400 €: **~1,2 leta** pri eni izmeni, **~0,6 leta** pri dveh.
 
 **Primerjava variant:**
 
 | | V1 jermeni, vse doma | V2 jermeni, Srbija | V3 mirujoča postaja, Srbija |
 |---|---|---|---|
-| Prodajna cena | ~66.300 € | ~51.800 € | **~49.900 €** |
+| Prodajna cena | ~66.300 € | ~51.800 € | **~44.400 €** |
 | Največ škatel/min | ~12 | ~12 | **~17** |
 | Gibljivi deli ob traku | 3 jermeni | 1 jermen | **nič** |
 | Menjava formata | 3 ročice | 3 ročice | **levo vodilo + hod prijemala v receptu** |

@@ -87,7 +87,7 @@ flowchart LR
 
 | Sklop | Znesek |
 |---|---|
-| Planiranje (konstrukcija, ocena tveganja, CE) | 7.700 € |
+| Planiranje (konstrukcija 50 h, ocena tveganja in CE 20 h) | 3.850 € |
 | Mehanika (material + izdelava pri kooperantu v Srbiji) | 6.230 € |
 | Elektro (senzorji, pnevmatika, programiranje) | 6.815 € |
 | Elektro omara (PLC, zaslon, varnost) | 4.000 € |
@@ -95,18 +95,18 @@ flowchart LR
 | Montaža | 800 € |
 | Zagon (preizkus pri nas + zagon pri stranki) | 1.760 € |
 | Logistika in kontrola kakovosti pri kooperantu | 1.600 € |
-| **Lastna cena** | **34.905 €** |
-| Rezerva 10 % | 3.490 € |
-| Dodatek 30 % | 11.520 € |
-| **Prodajna cena** | **≈ 49.900 € brez DDV** |
+| **Lastna cena** | **31.055 €** |
+| Rezerva 10 % | 3.105 € |
+| Dodatek 30 % | 10.250 € |
+| **Prodajna cena** | **≈ 44.400 € brez DDV** |
 
-Planiranje je 15 % cene, elektro z omaro 22 %.
+Planiranje je 9 % cene (postaja je preprosta, večino znanja že imamo), elektro z omaro 24 %.
 
 **Za stranko:** stroj nadomesti ročno zapiranje, kar je en človek ves čas na izmeno (≈ 55.000 €/leto). Po odbitku nadzora in obratovalnih stroškov ostane okoli 37.000 €/leto na izmeno.
 
 | | 1 izmena | 2 izmeni |
 |---|---|---|
-| **Povračilo** | **~1,3 leta** | **~0,7 leta** |
+| **Povračilo** | **~1,2 leta** | **~0,6 leta** |
 
 ## 8. Faze, merila in kaj rabimo od vas (0:30)
 
