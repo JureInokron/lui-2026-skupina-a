@@ -171,3 +171,55 @@ Zraven, a brez evrov: stalna kakovost zapiranja, manj reklamacij, sledljivost iz
 5. menjava formata v 3 min → dve ročici s števcem in tabela formatov na zaslonu, preverjeno pri FAT s štoparico.
 
 **CE:** stroj se vgradi v linijo; izjava o skladnosti, ocena tveganja in navodila so v ceni (planiranje). Od 20. 1. 2027 velja Uredba o strojih (EU) 2023/1230.
+
+---
+
+## 8. Varianta 2: optimizirani stroški (izdelava in montaža pri kooperantu v Srbiji)
+
+Kaj spremenimo glede na varianto 1:
+
+| Sprememba | Prej | Zdaj | Razlika |
+|---|---|---|---|
+| Stroj za lepljenje (enota, cevi, šobe), proženje šob kar iz PLC po enkoderju, brez posebnega krmilnika vzorca | 11.500 € | 6.000 € | −5.500 € |
+| Mali motor z reduktorjem (trak je lahek, škatle ~100 g) | 650 € | 250 € | −400 € |
+| Manjši frekvenčnik | 220 € | 150 € | −70 € |
+| Stranska pritisna jermena → vzmetna inox vodila (krilca so majhna, jermen ni nujen) | 1.600 € | 600 € | −1.000 € |
+| Laserski senzor pokrova S3 → navaden fotosenzor | 350 € | 120 € | −230 € |
+| HMI 7" → 4" (recepti formatov gredo tudi na manjšem) | 750 € | 450 € | −300 € |
+| Izdelava in sestava mehanike, ožičenje, montaža (156 h) v Srbiji: 25 €/h namesto 55 €/h | 8.580 € | 3.900 € | −4.680 € |
+| Dodatno: koordinacija in kontrola kakovosti pri kooperantu (16 h, naši) | | 880 € | +880 € |
+| Dodatno: programiranje proženja šob v PLC (8 h) | | 440 € | +440 € |
+| Dodatno: prevoz iz Srbije + carinjenje (z EUR.1 je carina 0 %) | | 720 € | +720 € |
+
+Planiranje, programiranje, preizkus (FAT) in zagon pri stranki ostanejo pri nas, ker je tam znanje.
+
+### Razdelitev variante 2
+
+| Sklop | Material | Delo | Skupaj |
+|---|---|---|---|
+| Planiranje (140 h, naši) | | 7.700 € | 7.700 € |
+| Mehanika | 5.960 € | 2.500 € (Srbija) | 8.460 € |
+| Elektro (stroj + programiranje) | 2.735 € | 3.190 € | 5.925 € |
+| Elektro omara | 3.000 € | 1.000 € (Srbija) | 4.000 € |
+| Stroj za lepljenje | 6.000 € | | 6.000 € |
+| Montaža | 400 € prevoz | 400 € (Srbija) | 800 € |
+| Zagon (FAT + zagon pri stranki) | | 1.760 € | 1.760 € |
+| Logistika in kontrola pri kooperantu | 720 € | 880 € | 1.600 € |
+| **Lastna cena** | | | **36.245 €** |
+| Rezerva 10 % | | | 3.625 € |
+| **Lastna cena z rezervo** | | | **39.870 €** |
+| Dodatek 30 % | | | 11.960 € |
+| **Prodajna cena** | | | **≈ 51.800 € brez DDV** |
+
+**Prihranek proti varianti 1: okoli 14.500 € (−22 %).**
+
+Preverba po pravilu: planiranje 7.700 € = **15 %**, elektro + omara 9.925 € = **19 %**. Zdaj se oboje ujema s 15 % in 20 %.
+
+Povračilo za stranko pri 51.800 €: **~1,4 leta** pri eni izmeni, **~0,7 leta** pri dveh.
+
+### Na kaj paziti pri varianti 2
+- **Kakovost varjenja inoxa** pri kooperantu: zahtevamo vzorčni zvar in fotografije pred odpremo, prevzem pri njih (zato 16 h koordinacije).
+- **EUR.1** (potrdilo o poreklu) mora kooperant izdati, sicer se plača carina.
+- **Popravki po montaži so dlje**: zato FAT pri nas, preden gre stroj k stranki.
+- **Cenejši hot melt**: preveriti rezervne dele in servis v regiji stranke.
+- Druga možnost: prodajna cena ostane okoli 66.300 €, razlika gre v maržo (okoli 44 % namesto 30 %).
