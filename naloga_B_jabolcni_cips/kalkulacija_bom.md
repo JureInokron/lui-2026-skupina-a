@@ -6,6 +6,10 @@ Skica: [`skica_cips.svg`](skica_cips.svg). Navodila: [`NAVODILA.md`](NAVODILA.md
 
 ## Koncept
 
+![3D koncept (Luka)](Trak-za-cips.png)
+
+*3D koncept (Luka): poševni trak 4 × 0,5 m, zgornja kamera, spodnja kamera v letu, zračni izmet, škatla na tehtnici.*
+
 - Prevzem **pod sušilcem na višini 1 m**, brez vmesnega traku in brez vibracijskega dodajalnika.
 - **Poševni trak 4 m, ~15° navzgor** (na koncu ~2 m visoko), teče hitreje od dovoda (15 do 20 m/min). Prekrite rezine na klancu zdrsnejo nazaj, zato se razmaknejo in ne ležijo ena na drugi.
 - **En trak brez špranje.** Zgornjo stran slika **kamera nad trakom pri 3,5 m** (fokus 500 mm); do glave traku je **0,5 m za izračun** (pri 20 m/min 1,5 s).
