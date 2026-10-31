@@ -112,3 +112,21 @@ Zraven: enaka presoja napak ves dan, sledljivost (vsaka izločena rezina je posn
   3. lažni izmet (dobre izpihne) → učenje na pravih vzorcih, nastavljiv prag na zaslonu;
   4. drobtine na spodnji kameri → zračna zavesa, čiščenje okna v urniku;
   5. izpad zraka → rezervoar, tlačno stikalo, ob alarmu se trak ustavi.
+
+---
+
+## Alternativa: dva traka z obračanjem rezine
+
+Skica: [`skica_cips_obracanje.svg`](skica_cips_obracanje.svg). Rezina pade s traka 1 (poševen, 2,2 m) na trak 2 (vodoraven, 1,8 m) in se pri padcu obrne. **Obe kameri gledata od zgoraj**, vsaka eno stran, obe imata 0,5 m do svojega izpiha.
+
+| Sprememba glede na en trak | Razlika |
+|---|---|
+| Drugi motor z reduktorjem in frekvenčnik | +400 € |
+| Druga letev šob za izpih (32 kanalov) | +2.700 € |
+| Drugi žleb in zabojnik za izmet | (v okviru mehanike) |
+| **Material skupaj** | **+3.100 €** |
+
+Prodajna cena (z rezervo 10 % in dodatkom 30 %): **≈ 47.800 €** namesto 43.400 €.
+
+- **Za:** obe kameri zgoraj, obe imata dovolj časa za izračun, ni kamere pod trakom, ni drobtin na objektivu.
+- **Proti:** ne obrne se vsaka rezina (ukrivljene, lahke); taka rezina gre mimo kamere 2 z isto stranjo. Rešitev: nastavljiv prag in višina padca, preizkus s pravim čipsom; dodaten padec lahko poveča lomljenje.
