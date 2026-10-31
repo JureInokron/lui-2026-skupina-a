@@ -54,13 +54,18 @@ flowchart LR
 
 ![Skica sistema](skica_cips_obracanje.svg)
 
-## 4. Simulacija (Luka) (1:00)
+## 4. Simulacija (1:00)
 
-> **Sem pride Lukov simulator** (povezava, posnetek ali sličica). Kaj naj pokaže:
-> - vibracijska miza razprši rezine, na traku 1 se razmaknejo;
-> - **koliko rezin se pri padcu na trak 2 obrne** (cilj ≥ 90 %), pri kateri višini padca;
-> - izmet 1 in izmet 2 izločita slabe, dobre gredo v škatlo;
-> - števec: rezin na minuto, izločenih na vsaki postaji, polnjenje škatle.
+**Odpri simulacijo:** https://claude.ai/artifact/WuYUaRhEWF8TTdGYreND1W (datoteka v repozitoriju: [`simulacija.html`](simulacija.html), deluje tudi lokalno v brskalniku).
+
+Kaj pokazati v eni minuti:
+- **stranski pogled:** vibracijska miza razprši kup, trak 1 rezine razmakne, kamera 1 označi slabe (rdeč obroč), izpih 1 jih vrže v izmet, ostale padejo na trak 2 in se obrnejo, izpih 2, dobre v škatlo na tehtnici;
+- **pogled od zgoraj:** vidiš razmike in pike na vidni strani; po padcu se pri obrnjenih rezinah pokaže druga stran;
+- **drsnik »Višina padca«:** pri 50 mm se obrne ~50 % rezin in v škatlo gre več slabih, pri 150 mm ~88 %;
+- **16 ali 32 ventilov:** z 32 je manj dobrih rezin izpihanih po nesreči;
+- **dovod:** povečaj na 1.000 rezin/min, da pokažeš, da trak še vedno razmakne rezine.
+
+Model je poenostavljen: verjetnost obrata je ocena (1 − e^(−h/70 mm)), pravo vrednost da preizkus s pravim čipsom.
 
 | Izračun | |
 |---|---|

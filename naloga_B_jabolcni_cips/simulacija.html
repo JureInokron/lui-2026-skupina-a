@@ -1,0 +1,371 @@
+<title>Sortirnica jabolčnega čipsa</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Postavitev: glava, velika delovna površina (stranski pogled + pogled od zgoraj), pod njo krmilni pult in števci. */
+:root{
+  --bg:#eef1f3; --panel:#ffffff; --line:#cfd6dc; --fg:#1b2329; --muted:#5b6872;
+  --steel:#8e9ba5; --belt:#3d6fb6; --chip:#d9a441; --chip-in:#b07a1f; --spot:#3a2412;
+  --bad:#d23b2f; --ok:#2f8f4e; --cam:#58b6e8; --accent:#1f5fae;
+  --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12171b; --panel:#1a2127; --line:#2c363e; --fg:#e6ecf0; --muted:#94a2ad;
+  --steel:#6d7a84; --belt:#4f84cf; --chip:#e2b04f; --chip-in:#a8761f; --spot:#2a1a0c;
+  --bad:#f0594c; --ok:#4cbf72; --cam:#6cc6f2; --accent:#7fb2f0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171b; --panel:#1a2127; --line:#2c363e; --fg:#e6ecf0; --muted:#94a2ad;
+  --steel:#6d7a84; --belt:#4f84cf; --chip:#e2b04f; --chip-in:#a8761f; --spot:#2a1a0c;
+  --bad:#f0594c; --ok:#4cbf72; --cam:#6cc6f2; --accent:#7fb2f0; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:16px}
+header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.2vw,34px);letter-spacing:.01em;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:2px 0 0;max-width:70ch}
+.tag{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:3px 8px;white-space:nowrap}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px}
+canvas{display:block;width:100%;height:auto}
+.below{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:16px}
+@media (max-width:820px){.below{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;min-width:0}
+.card h2{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 10px;color:var(--muted)}
+.ctl{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:center;margin-bottom:10px}
+.ctl label{font-weight:500}
+.ctl output{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+.ctl input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent)}
+.ctl small{grid-column:1/-1;color:var(--muted);font-size:12.5px}
+.seg{display:flex;gap:6px;grid-column:1/-1;flex-wrap:wrap}
+.seg button,.btns button{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:6px;padding:6px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.btns button.primary{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.stat{border:1px solid var(--line);border-radius:6px;padding:8px 10px;display:grid;gap:2px}
+.stat .k{font-size:12.5px;color:var(--muted)}
+.stat .v{font-family:var(--mono);font-size:20px;font-variant-numeric:tabular-nums}
+.stat.good .v{color:var(--ok)} .stat.bad .v{color:var(--bad)}
+.note{color:var(--muted);font-size:13px;margin:12px 0 0;max-width:75ch}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted);padding:6px 6px 2px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:50%;display:inline-block}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Sortirnica jabolčnega čipsa</h1>
+      <p class="sub">Simulacija koncepta skupine A: vibracijska miza, trak 1 s kamero in izpihom, obračanje rezine pri padcu na trak 2, druga kamera in izpih, dobre rezine v škatlo na tehtnici.</p>
+    </div>
+    <span class="tag">LUI-RFQ-02 · model</span>
+  </header>
+
+  <div class="stage">
+    <canvas id="cv" width="1160" height="620" aria-label="Animacija linije: stranski pogled zgoraj, pogled od zgoraj spodaj"></canvas>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--chip)"></i>rezina</span>
+      <span><i class="sw" style="background:var(--spot)"></i>črna pika na vidni strani</span>
+      <span><i class="sw" style="border:2px solid var(--bad)"></i>kamera jo je označila</span>
+      <span><i class="sw" style="background:var(--cam)"></i>kamera (vision stranke)</span>
+      <span><i class="sw" style="background:var(--bad)"></i>izpih</span>
+    </div>
+  </div>
+
+  <div class="below">
+    <section class="card" aria-labelledby="h-ctl">
+      <h2 id="h-ctl">Nastavitve</h2>
+      <div class="ctl"><label for="rate">Dovod iz sušilca</label><output id="o-rate"></output><input id="rate" type="range" min="60" max="1200" step="20" value="400"><small>rezin na minuto (pravo vrednost potrdi naročnik)</small></div>
+      <div class="ctl"><label for="belt">Hitrost trakov</label><output id="o-belt"></output><input id="belt" type="range" min="5" max="25" step="1" value="20"><small>m/min; dovod je ~5 m/min</small></div>
+      <div class="ctl"><label for="drop">Višina padca na trak 2</label><output id="o-drop"></output><input id="drop" type="range" min="30" max="250" step="10" value="150"><small>od tega je odvisno, koliko rezin se obrne</small></div>
+      <div class="ctl"><label for="def">Delež rezin s črno piko</label><output id="o-def"></output><input id="def" type="range" min="0" max="30" step="1" value="8"><small>pika je na eni od obeh strani</small></div>
+      <div class="ctl"><label>Ventilov na letev (500 mm)</label><output id="o-val"></output>
+        <div class="seg" role="group" aria-label="Ventilov na letev"><button id="v16" aria-pressed="true">16</button><button id="v32" aria-pressed="false">32</button></div></div>
+      <div class="ctl"><label>Hitrost prikaza</label><output id="o-spd"></output>
+        <div class="seg" role="group" aria-label="Hitrost prikaza"><button data-s="0.25" aria-pressed="false">¼×</button><button data-s="1" aria-pressed="true">1×</button><button data-s="4" aria-pressed="false">4×</button></div></div>
+      <div class="btns"><button id="play" class="primary">Ustavi</button><button id="reset">Ponastavi števce</button></div>
+    </section>
+
+    <section class="card" aria-labelledby="h-st">
+      <h2 id="h-st">Rezultat</h2>
+      <div class="stats">
+        <div class="stat"><span class="k">Rezin na minuto v škatlo</span><span class="v" id="s-thru">0</span></div>
+        <div class="stat"><span class="k">Obrnjenih pri padcu</span><span class="v" id="s-flip">–</span></div>
+        <div class="stat bad"><span class="k">Izmet 1 (stran A)</span><span class="v" id="s-r1">0</span></div>
+        <div class="stat bad"><span class="k">Izmet 2 (stran B)</span><span class="v" id="s-r2">0</span></div>
+        <div class="stat good"><span class="k">Ujetih slabih rezin</span><span class="v" id="s-caught">–</span></div>
+        <div class="stat bad"><span class="k">Slabe, ki so šle v škatlo</span><span class="v" id="s-miss">0</span></div>
+        <div class="stat"><span class="k">Dobre, izpihane po nesreči</span><span class="v" id="s-false">–</span></div>
+        <div class="stat"><span class="k">Prekrite pod kamero</span><span class="v" id="s-ovl">0</span></div>
+        <div class="stat"><span class="k">Škatla (2 kg)</span><span class="v" id="s-box">0 g</span></div>
+      </div>
+      <p class="note">Model: rezina Ø 50 mm, 2 g. Verjetnost obrata pri padcu je ocena 1 − e<sup>−h/70 mm</sup> (pri 150 mm ≈ 88 %), pravo vrednost da preizkus s pravim čipsom. Rezino, ki se ne obrne, kamera 2 vidi z iste strani, zato ostane pika na spodnji strani neodkrita. Ventil pokrije 500/16 ≈ 31 mm širine; če sosednja rezina pride pod isti ventil v istem trenutku, gre v izmet tudi ona.</p>
+    </section>
+  </div>
+</div>
+
+<script>
+(() => {
+  const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+  const $ = id => document.getElementById(id);
+  const P = { rate: 400, belt: 20, drop: 0.15, def: 0.08, valves: 16, speed: 1 };
+  const G = 9.81, D = 0.05, W = 0.5, L_VIB = 0.8, L1 = 2.2, L2 = 1.8, ANG = 15 * Math.PI / 180;
+  const CAM1 = 1.7, CAM2 = 1.3, V_VIB = 0.12, BOX_G = 2000, CHIP_G = 2;
+  const B1X = 0.85, B1Y = 1.0;
+  const H1X = B1X + L1 * Math.cos(ANG), H1Y = B1Y + L1 * Math.sin(ANG);
+  const geom = () => ({ b2y: H1Y - P.drop, b2x: H1X - 0.04 });
+  const pFlip = h => 1 - Math.exp(-h / 0.07);
+
+  let C = {};
+  const readTheme = () => { const s = getComputedStyle(document.documentElement); for (const k of ['bg','panel','line','fg','muted','steel','belt','chip','chip-in','spot','bad','ok','cam','accent']) C[k] = s.getPropertyValue('--' + k).trim(); };
+  readTheme();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readTheme);
+  new MutationObserver(readTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  let chips = [], t = 0, nextArr = 0, id = 0, fires1 = [], fires2 = [], running = true;
+  let S, boxG = 0;
+  const resetStats = () => { S = { arr: 0, box: 0, r1: 0, r2: 0, defIn: 0, caught: 0, miss: 0, falseRej: 0, goodIn: 0, flipN: 0, flipY: 0, ovl: 0, t0: t, boxes: 0 }; };
+  resetStats();
+
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const gauss = () => { let u = 0, v = 0; while (!u) u = Math.random(); while (!v) v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
+  const vBelt = () => P.belt / 60;
+
+  function spawn() {
+    const bad = Math.random() < P.def;
+    const side = Math.random() < 0.5 ? 0 : 1;
+    const lat = Math.min(W - 0.03, Math.max(0.03, 0.25 + gauss() * 0.06));
+    const spots = bad ? Array.from({ length: 1 + (Math.random() * 3 | 0) }, () => [rnd(-0.6, 0.6), rnd(-0.6, 0.6), rnd(0.12, 0.22)]) : [];
+    chips.push({ id: id++, st: 'vib', x: 0, lat, latT: rnd(0.03, W - 0.03), up: Math.random() < 0.5 ? 0 : 1,
+      def: [bad && side === 0, bad && side === 1], spots, flag: false, rot: 0, flipped: false, px: 0, py: 0, vx: 0, vy: 0, wob: rnd(0, 6) });
+    S.arr++; if (bad) S.defIn++; else S.goodIn++;
+  }
+
+  const bins = lat => { const bw = W / P.valves, a = Math.max(0, Math.floor((lat - D / 2) / bw)), b = Math.min(P.valves - 1, Math.floor((lat + D / 2) / bw)); const r = []; for (let i = a; i <= b; i++) r.push(i); return r; };
+
+  function atHead(c, fires) {
+    const my = bins(c.lat), win = D / vBelt() + 0.02;
+    if (c.flag) for (const b of my) fires.push({ b, until: t + win, from: t });
+    return fires.some(f => f.until >= t && f.from <= t && my.includes(f.b));
+  }
+
+  function overlapCheck(c, list) {
+    for (const o of list) if (o !== c && Math.abs(o.x - c.x) < D * 0.9 && Math.abs(o.lat - c.lat) < D * 0.9) return true;
+    return false;
+  }
+
+  function step(dt) {
+    t += dt;
+    const lam = P.rate / 60;
+    while (nextArr <= t) { spawn(); nextArr += -Math.log(Math.random()) / lam; }
+    const v = vBelt(), { b2y, b2x } = geom();
+    const onB1 = chips.filter(c => c.st === 'b1'), onB2 = chips.filter(c => c.st === 'b2');
+    fires1 = fires1.filter(f => f.until > t - 0.3); fires2 = fires2.filter(f => f.until > t - 0.3);
+    for (const c of chips) {
+      if (c.st === 'vib' || c.st === 'wait') {
+        if (c.st === 'vib') { c.x += V_VIB * dt; c.lat += (c.latT - c.lat) * Math.min(1, dt * 1.6); }
+        if (c.x >= L_VIB) {
+          c.x = L_VIB;
+          const blocked = onB1.some(o => o.x < D * 1.1 && Math.abs(o.lat - c.lat) < D * 0.95);
+          if (blocked) c.st = 'wait'; else { c.st = 'b1'; c.x = 0; onB1.push(c); }
+        }
+      } else if (c.st === 'b1') {
+        const px = c.x; c.x += v * dt;
+        if (px < CAM1 && c.x >= CAM1) { if (overlapCheck(c, onB1)) { S.ovl++; c.flag = false; } else c.flag = c.def[c.up]; }
+        if (c.x >= L1) {
+          const rej = atHead(c, fires1);
+          c.px = H1X; c.py = H1Y; c.vx = v * Math.cos(ANG); c.vy = v * Math.sin(ANG);
+          if (rej) { c.st = 'rej1'; c.vy -= 0.6; c.vx += 0.15; S.r1++; tally(c); }
+          else { c.st = 'fly'; c.flipped = Math.random() < pFlip(P.drop); S.flipN++; if (c.flipped) S.flipY++; c.flag = false; }
+        }
+      } else if (c.st === 'fly') {
+        c.vy -= G * dt; c.px += c.vx * dt; c.py += c.vy * dt;
+        const tot = Math.sqrt(2 * (P.drop + 0.02) / G) + 0.05; c.rot = Math.min(1, (c.rot * tot + dt) / tot);
+        if (c.py <= b2y) { c.st = 'b2'; c.x = Math.max(0.02, c.px - b2x); c.lat = Math.min(W - 0.03, Math.max(0.03, c.lat + gauss() * 0.01)); if (c.flipped) c.up = 1 - c.up; c.rot = 0; onB2.push(c); }
+      } else if (c.st === 'b2') {
+        const px = c.x; c.x += v * dt;
+        if (px < CAM2 && c.x >= CAM2) { if (overlapCheck(c, onB2)) { S.ovl++; c.flag = false; } else c.flag = c.def[c.up]; }
+        if (c.x >= L2) {
+          const rej = atHead(c, fires2);
+          c.px = b2x + L2; c.py = b2y; c.vx = v; c.vy = 0;
+          if (rej) { c.st = 'rej2'; c.vy -= 0.6; S.r2++; tally(c); }
+          else { c.st = 'fly2'; }
+        }
+      } else if (c.st === 'rej1' || c.st === 'rej2' || c.st === 'fly2') {
+        c.vy -= G * dt; c.px += c.vx * dt; c.py += c.vy * dt;
+        if (c.st === 'fly2') { const tx = b2x + L2 + 0.62; c.vx += (tx - c.px) * 6 * dt; c.vx *= 0.97; }
+        if (c.py < 0.42) {
+          if (c.st === 'fly2') { S.box++; boxG += CHIP_G; if (c.def[0] || c.def[1]) S.miss++; if (boxG >= BOX_G) { boxG = 0; S.boxes++; } }
+          c.st = 'gone';
+        }
+      }
+    }
+    chips = chips.filter(c => c.st !== 'gone');
+    if (chips.length > 900) chips = chips.slice(-900);
+  }
+  function tally(c) { if (c.def[0] || c.def[1]) S.caught++; else S.falseRej++; }
+
+  // ---------- risanje ----------
+  let dpr = 1, cw = 1160, ch = 620;
+  function resize() {
+    const r = cv.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
+    cw = Math.max(320, r.width); ch = Math.round(cw * (cw < 600 ? 0.95 : 0.53));
+    cv.width = Math.round(cw * dpr); cv.height = Math.round(ch * dpr); cv.style.height = ch + 'px';
+  }
+  new ResizeObserver(resize).observe(cv); resize();
+
+  function draw() {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = C.panel; ctx.fillRect(0, 0, cw, ch);
+    const { b2y, b2x } = geom();
+    const sideH = ch * 0.58, pad = 14;
+    const xmin = -0.35, xmax = 5.85, ymin = 0.25, ymax = 2.3;
+    const sc = Math.min((cw - 2 * pad) / (xmax - xmin), (sideH - 2 * pad) / (ymax - ymin));
+    const X = x => pad + (x - xmin) * sc, Y = y => sideH - pad - (y - ymin) * sc;
+    const fs = Math.max(10, Math.min(13, cw / 85));
+    ctx.font = `500 ${fs}px "Barlow", system-ui, sans-serif`; ctx.textBaseline = 'alphabetic';
+    const label = (s, x, y, col = C.muted, al = 'left') => { ctx.fillStyle = col; ctx.textAlign = al; ctx.fillText(s, x, y); };
+
+    // tla
+    ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(xmin), Y(0.4)); ctx.lineTo(X(xmax), Y(0.4)); ctx.stroke();
+    // sušilec
+    ctx.fillStyle = C.bg; ctx.strokeStyle = C.steel; ctx.lineWidth = 1; ctx.fillRect(X(-0.3), Y(1.75), 0.55 * sc, 0.6 * sc); ctx.strokeRect(X(-0.3), Y(1.75), 0.55 * sc, 0.6 * sc);
+    label('sušilec', X(-0.25), Y(1.55));
+    // vibracijska miza
+    ctx.fillStyle = C.steel; ctx.fillRect(X(0), Y(1.0) + 3, L_VIB * sc, 6);
+    ctx.strokeStyle = C.steel; ctx.lineWidth = 2; ctx.beginPath();
+    for (let i = 0; i < 6; i++) { const x0 = X(0.1 + i * 0.12); ctx.moveTo(x0, Y(1.0) + 10); ctx.lineTo(x0 + 6, Y(1.0) + 18); }
+    ctx.stroke(); label('vibracijska miza', X(0), Y(1.0) + 32);
+    // trak 1
+    ctx.strokeStyle = C.belt; ctx.lineWidth = Math.max(5, sc * 0.03); ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(X(B1X), Y(B1Y)); ctx.lineTo(X(H1X), Y(H1Y)); ctx.stroke();
+    label('trak 1 · 15°', X(B1X + 0.6), Y(B1Y + 0.25), C.fg);
+    // trak 2
+    ctx.beginPath(); ctx.moveTo(X(b2x), Y(b2y)); ctx.lineTo(X(b2x + L2), Y(b2y)); ctx.stroke();
+    label('trak 2', X(b2x + 0.6), Y(b2y) + 22, C.fg);
+    ctx.lineCap = 'butt';
+    // višina padca
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.setLineDash([3, 3]);
+    ctx.beginPath(); ctx.moveTo(X(H1X + 0.12), Y(H1Y)); ctx.lineTo(X(H1X + 0.12), Y(b2y)); ctx.stroke(); ctx.setLineDash([]);
+    label(`${Math.round(P.drop * 1000)} mm`, X(H1X + 0.16), Y((H1Y + b2y) / 2) + 4);
+    // kamere
+    const cam = (x, y, name) => {
+      ctx.fillStyle = C.cam; ctx.globalAlpha = 0.18; ctx.beginPath(); ctx.moveTo(X(x) - 6, Y(y + 0.5)); ctx.lineTo(X(x) - 0.05 * sc, Y(y)); ctx.lineTo(X(x) + 0.05 * sc, Y(y)); ctx.lineTo(X(x) + 6, Y(y + 0.5)); ctx.fill(); ctx.globalAlpha = 1;
+      ctx.fillStyle = C.fg; ctx.fillRect(X(x) - 10, Y(y + 0.5) - 14, 20, 14);
+      label(name, X(x), Y(y + 0.5) - 20, C.fg, 'center');
+    };
+    const c1x = B1X + CAM1 * Math.cos(ANG), c1y = B1Y + CAM1 * Math.sin(ANG);
+    cam(c1x, c1y, 'kamera 1 · stran A'); cam(b2x + CAM2, b2y, 'kamera 2 · stran B');
+    // ventili + izmet
+    const valve = (x, y, fires) => {
+      const on = fires.some(f => f.from <= t && f.until >= t);
+      ctx.fillStyle = on ? C.bad : C.steel; ctx.fillRect(X(x) + 4, Y(y) - 16, 14, 8);
+      if (on) { ctx.strokeStyle = C.bad; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(x) + 11, Y(y) - 8); ctx.lineTo(X(x) + 8, Y(y) + 14); ctx.stroke(); }
+    };
+    valve(H1X, H1Y, fires1); valve(b2x + L2, b2y, fires2);
+    const bin = (x, name, col) => { ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.strokeRect(X(x) - 0.14 * sc, Y(0.62), 0.28 * sc, 0.2 * sc); label(name, X(x), Y(0.62) - 5, col, 'center'); };
+    bin(H1X + 0.05, 'izmet 1', C.bad); bin(b2x + L2 + 0.08, 'izmet 2', C.bad);
+    // škatla na tehtnici
+    const bx = b2x + L2 + 0.62;
+    ctx.fillStyle = C.chip; ctx.globalAlpha = 0.35; const fh = (boxG / BOX_G) * 0.26 * sc; ctx.fillRect(X(bx) - 0.16 * sc, Y(0.44) - fh, 0.32 * sc, fh); ctx.globalAlpha = 1;
+    ctx.strokeStyle = C['chip-in']; ctx.lineWidth = 2; ctx.strokeRect(X(bx) - 0.16 * sc, Y(0.7), 0.32 * sc, 0.26 * sc);
+    ctx.fillStyle = C.fg; ctx.fillRect(X(bx) - 0.2 * sc, Y(0.44), 0.4 * sc, 5);
+    label(`${Math.round(boxG)} g`, X(bx), Y(0.7) - 6, C.fg, 'center');
+
+    // rezine v stranskem pogledu
+    for (const c of chips) {
+      let x, y, a = 0;
+      if (c.st === 'vib' || c.st === 'wait') { x = c.x; y = 1.0 + 0.015 + (c.st === 'wait' ? 0.01 * Math.sin(c.wob + t * 20) : 0.004 * Math.sin(c.wob + t * 40)); }
+      else if (c.st === 'b1') { x = B1X + c.x * Math.cos(ANG); y = B1Y + c.x * Math.sin(ANG) + 0.015; a = -ANG; }
+      else if (c.st === 'b2') { x = b2x + c.x; y = b2y + 0.015; }
+      else { x = c.px; y = c.py + 0.015; a = c.st === 'fly' ? (c.flipped ? -c.rot * Math.PI : -0.2 * Math.sin(c.rot * 3)) : t * 6 + c.wob; }
+      ctx.save(); ctx.translate(X(x), Y(y)); ctx.rotate(a);
+      ctx.fillStyle = C.chip; ctx.beginPath(); ctx.ellipse(0, 0, Math.max(2.5, D / 2 * sc), Math.max(1.2, 0.006 * sc), 0, 0, Math.PI * 2); ctx.fill();
+      if (c.flag && (c.st === 'b1' || c.st === 'b2')) { ctx.strokeStyle = C.bad; ctx.lineWidth = 1.5; ctx.stroke(); }
+      ctx.restore();
+    }
+
+    // ---------- pogled od zgoraj ----------
+    const top0 = sideH + 8, topH = ch - top0 - 8;
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(pad, sideH); ctx.lineTo(cw - pad, sideH); ctx.stroke();
+    label('POGLED OD ZGORAJ', pad, top0 + fs, C.muted);
+    const segs = [['vibracijska miza', L_VIB], ['trak 1', L1], ['trak 2', L2]];
+    const gap = 0.15, tot = L_VIB + L1 + L2 + 2 * gap;
+    const ts = Math.min((cw - 2 * pad) / tot, (topH - fs - 26) / W);
+    const ty = top0 + fs + 10, tH = W * ts;
+    const offs = [0, L_VIB + gap, L_VIB + gap + L1 + gap];
+    const TX = (k, x) => pad + (offs[k] + x) * ts, TY = lat => ty + lat * ts;
+    segs.forEach(([n, L], k) => {
+      ctx.fillStyle = k === 0 ? C.bg : C.belt; ctx.globalAlpha = k === 0 ? 1 : 0.18; ctx.fillRect(TX(k, 0), ty, L * ts, tH); ctx.globalAlpha = 1;
+      ctx.strokeStyle = k === 0 ? C.steel : C.belt; ctx.lineWidth = 1; ctx.strokeRect(TX(k, 0), ty, L * ts, tH);
+      label(n, TX(k, 0), ty + tH + fs + 4);
+    });
+    // kamere in ventili
+    const camLine = (k, x) => { ctx.strokeStyle = C.cam; ctx.lineWidth = 2; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(TX(k, x), ty - 3); ctx.lineTo(TX(k, x), ty + tH + 3); ctx.stroke(); ctx.setLineDash([]); };
+    camLine(1, CAM1); camLine(2, CAM2);
+    const bar = (k, L, fires) => {
+      const bw = W / P.valves;
+      for (let i = 0; i < P.valves; i++) {
+        const on = fires.some(f => f.b === i && f.from <= t && f.until >= t);
+        ctx.fillStyle = on ? C.bad : C.steel; ctx.globalAlpha = on ? 1 : 0.45;
+        ctx.fillRect(TX(k, L) + 2, TY(i * bw) + 1, 6, bw * ts - 2);
+      }
+      ctx.globalAlpha = 1;
+    };
+    bar(1, L1, fires1); bar(2, L2, fires2);
+    const r = Math.max(2.5, D / 2 * ts), ri = r * 0.32;
+    for (const c of chips) {
+      let k, x;
+      if (c.st === 'vib' || c.st === 'wait') { k = 0; x = c.x; } else if (c.st === 'b1') { k = 1; x = c.x; } else if (c.st === 'b2') { k = 2; x = c.x; } else continue;
+      const cx = TX(k, x), cy = TY(c.lat);
+      ctx.fillStyle = C.chip; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.arc(cx, cy, ri, 0, Math.PI * 2, true); ctx.fill('evenodd');
+      if (c.def[c.up]) { ctx.fillStyle = C.spot; for (const [sx, sy, sr] of c.spots) { ctx.beginPath(); ctx.arc(cx + sx * r, cy + sy * r, Math.max(1, sr * r), 0, Math.PI * 2); ctx.fill(); } }
+      if (c.flag) { ctx.strokeStyle = C.bad; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(cx, cy, r + 1.5, 0, Math.PI * 2); ctx.stroke(); }
+    }
+  }
+
+  // ---------- števci ----------
+  const pct = (a, b) => b > 0 ? (100 * a / b).toFixed(1).replace('.', ',') + ' %' : '–';
+  function stats() {
+    const el = Math.max(1, t - S.t0);
+    $('s-thru').textContent = Math.round(S.box / el * 60);
+    $('s-flip').textContent = pct(S.flipY, S.flipN);
+    $('s-r1').textContent = S.r1; $('s-r2').textContent = S.r2;
+    const doneBad = S.caught + S.miss;
+    $('s-caught').textContent = pct(S.caught, doneBad);
+    $('s-miss').textContent = S.miss;
+    $('s-false').textContent = pct(S.falseRej, S.falseRej + S.box - S.miss);
+    $('s-ovl').textContent = S.ovl;
+    $('s-box').textContent = `${Math.round(boxG)} g · polnih ${S.boxes}`;
+  }
+
+  // ---------- krmila ----------
+  const bind = (idr, fmt, set) => { const el = $(idr), o = $('o-' + idr); const u = () => { set(+el.value); o.textContent = fmt(+el.value); }; el.addEventListener('input', u); u(); };
+  bind('rate', v => `${v} /min`, v => { P.rate = v; nextArr = t; });
+  bind('belt', v => `${v} m/min`, v => P.belt = v);
+  bind('drop', v => `${v} mm · obrat ≈ ${Math.round(100 * pFlip(v / 1000))} %`, v => P.drop = v / 1000);
+  bind('def', v => `${v} %`, v => P.def = v / 100);
+  const setVal = n => { P.valves = n; $('v16').setAttribute('aria-pressed', n === 16); $('v32').setAttribute('aria-pressed', n === 32); $('o-val').textContent = `${n} · ${Math.round(500 / n)} mm na ventil`; };
+  $('v16').onclick = () => setVal(16); $('v32').onclick = () => setVal(32); setVal(16);
+  document.querySelectorAll('[data-s]').forEach(b => b.onclick = () => { P.speed = +b.dataset.s; document.querySelectorAll('[data-s]').forEach(x => x.setAttribute('aria-pressed', x === b)); $('o-spd').textContent = b.textContent; });
+  $('o-spd').textContent = '1×';
+  $('play').onclick = () => { running = !running; $('play').textContent = running ? 'Ustavi' : 'Zaženi'; };
+  $('reset').onclick = () => { resetStats(); boxG = 0; };
+
+  // predgretje, da prva slika ni prazna
+  for (let i = 0; i < 2200; i++) step(0.01);
+  resetStats();
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { running = false; $('play').textContent = 'Zaženi'; }
+  let last = performance.now(), frame = 0;
+  function loop(now) {
+    const real = Math.min(0.05, (now - last) / 1000); last = now;
+    if (running) { let rem = real * P.speed; while (rem > 0) { const d = Math.min(0.008, rem); step(d); rem -= d; } }
+    draw(); if (++frame % 10 === 0) stats();
+    requestAnimationFrame(loop);
+  }
+  draw(); stats(); requestAnimationFrame(loop);
+})();
+</script>
